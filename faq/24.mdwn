@@ -1,0 +1,5 @@
+[[!meta title="I'm seeing the message "Premature end of script headers" in my error log file.  What does this message mean?"]]
+Please double-check that you are following the rules listed in step \#3
+above.\
+ If you are still receiving this error message, please contact the
+scripts maintainers by e-mailing scripts@mit.edu.
