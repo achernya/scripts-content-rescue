@@ -1,0 +1,5 @@
+[[!meta title="Can I access the web server error log information produced by my scripts?"]]
+Yes.
+/afs/athena.mit.edu/contrib/scripts/web\_logs/YOUR\_USER\_NAME/apache.err
+contains the last 10 lines of web server error log information produced
+by your scripts.
