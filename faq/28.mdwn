@@ -1,0 +1,3 @@
+[[!meta title="Can one use the scripts.mit.edu service to generate Apache-style logs of hits to web pages?"]]
+Yes. See [this page](http://scripts.mit.edu/web/logging.html) for
+instructions and more information.
