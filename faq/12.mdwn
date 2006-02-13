@@ -1,0 +1,7 @@
+[[!meta title="The server is down, what do I do?"]]
+Although this service has been designed with reliability in mind, the
+SIPB MySQL service should not be used to host critical applications that
+cannot tolerate downtime. We perform no query logging, schema or data
+backups, or any other backups otherwise generally available. You are
+solely responsible for performing backups of your data. We maintain
+general usage statistics of this service by the MIT community at large.
