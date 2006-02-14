@@ -1,0 +1,61 @@
+[[!meta title="What do I need to use the service?"]]
+(If, at any point in this process, you become stuck or encounter a
+problem, feel free to contact us at scripts@mit.edu. We regularly help
+people get up-and-running using the service.)
+
+​1. You must have an [Athena account](http://web.mit.edu/olh/Register/)
+and understand the [MITnet rules of
+use](http://web.mit.edu/olh/Welcome/rules.html). You should also
+understand that users of the script service are responsible for ensuring
+the security of their content. If you install software from the web in
+your account, you are responsible for keeping that software up-to-date
+so that it is secure. If you have any questions or concerns, feel free
+to contact us at scripts@mit.edu.
+
+​2. Run the commands in the shell script
+[/afs/athena.mit.edu/contrib/scripts/bin/signup-web](http://web.mit.edu/~scripts/bin/signup-web):\
+ (you can run these commands by typing “add scripts” [enter] then
+“signup-web” [enter] at an Athena command prompt)
+
+This script creates your web\_scripts directory and signs you up for the
+service.
+
+Your home directory must be listable by system:anyuser in order for the
+script service to work properly. (All Athena accounts are created with
+home directories that are listable by system:anyuser, and few users
+change this setting).
+
+​3. Place your web scripts and any supporting files in \~/web\_scripts
+and make sure that they follow these rules:
+
+If you want your scripts to be able to write data to subdirectories of
+your Athena home directory, you need to grant appropriate afs access to
+the user “daemon.scripts”. For example, **if you want your scripts to be
+able to write to a directory called DIRECTORY, you should run the
+command “fs sa DIRECTORY daemon.scripts write”** on Athena. See [Script
+Service AFS Details](http://scripts.mit.edu/afs_details.shtml) for more
+information.
+
+Looking at sample script code may help you get your scripts working:\
+ demo.pl: [see
+code](http://web.mit.edu/~jbarnold/web_scripts/demo/demo.pl.html) | [see
+output](http://scripts.mit.edu/~jbarnold/demo/demo.pl)\
+ demo.php: [see
+code](http://web.mit.edu/~jbarnold/web_scripts/demo/demo.php.html) |
+[see output](http://scripts.mit.edu/~jbarnold/demo/demo.php)\
+
+demo.py: [see
+code](http://web.mit.edu/~jbarnold/web_scripts/demo/demo.py.html) | [see
+output](http://scripts.mit.edu/~jbarnold/demo/demo.py)\
+
+​4. Use a URL of the form
+http://**scripts**.mit.edu/**\~**USER\_NAME/SCRIPT\_NAME to access your
+scripts. The URL must start with http://**scripts**.mit.edu (rather than
+http://web.mit.edu or http://www.mit.edu), and you must include the \~.
+You should not include web\_scripts in the URL path.
+
+​5. Add yourself to the scripts-announce mailing list by going to the
+[scripts-announce mailman
+page](https://mailman.mit.edu/mailman/listinfo/scripts-announce) if you
+would like to receive announcements of major service changes and
+outages. The scripts-announce list is moderated and is low-volume.
