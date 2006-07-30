@@ -1,0 +1,14 @@
+[[!meta title="Why is ssh -k recommended for ssh-ing into scripts.mit.edu?"]]
+Kerberos ticket forwarding (ssh -K [note the capital letter], the
+default on Athena) will attempt to transfer your full Athena credentials
+to scripts.mit.edu. The scripts server does not need these credentials,
+and good security practice suggests that you should not transfer your
+credentials where you do not need them.
+
+If you instead use ssh -k [note the lower case letter], you will
+authenticate yourself to the scripts server using your kerberos tickets,
+without giving the scripts server any special priveleges over your
+Athena account.
+
+In short, **ssh -k scripts.mit.edu** is the recommended means of ssh-ing
+to the scripts server.
