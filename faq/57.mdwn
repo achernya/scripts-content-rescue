@@ -1,0 +1,32 @@
+[[!meta title="Ignore this FAQ"]]
+Yes. If you have a valid reason for getting a subdomain of mit.edu,
+please fill out the following form. You will need MIT certificates. Note
+that hostnames can only contain letters (case-insensitive), numbers, and
+hyphens, and you must select a valid, existing directory on scripts.
+
+\
+ New name: .mit.edu
+
+(hostname).mit.edu points to: scripts.mit.edu/\~
+
+Redirect standard (http://) requests to a secure connection (https://)\
+ Require MIT certificates when accessing via https://
+
+\
+
+Your request will be sent to the scripts team, and you should receive a
+reply within a day or two if your request is accepted. (All reasonable
+requests will be accepted if the name is available.) The URL will start
+working in a few more days, after IS&T updates the DNS servers to have
+the new subdomain.
+
+Please note that you cannot request a name that is already taken by
+someone else: you can use SIPB’s [machine lookup
+form](http://stuff.mit.edu/machine) to check if the name is taken. If
+the name is owned by you, we will contact you to make sure you want to
+move the name to scripts.mit.edu and find out what new name you want to
+give the existing IP address.
+
+If you are unable to use this form (e.g., you don’t have certificates,
+or you want to point your own domain name at scripts), please e-mail
+[scripts@mit.edu](mailto:scripts@mit.edu).
