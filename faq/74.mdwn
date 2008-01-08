@@ -1,0 +1,35 @@
+[[!meta title="Outage information - Saturday, Jan. 5, 2008"]]
+Last updated: Jan. 5, 4:40 PM
+
+Between the hours of 10 PM to 3 AM this Saturday night, the scripts
+servers will be moved to a new UPS and network connection. This should
+not cause a noticeable disruption in the web scripts or mail scripts
+service. There may be a brief disruption of the SQL service as it is
+moved. (If you see a website that reports that it cannot connect to the
+database, try reloading the page in a few seconds.) All services run on
+redundant servers for reliability, so it is expected that we will be
+able to avoid interrupting the services while we complete the move.
+However, in the event of an unforeseen failure, there may be a longer
+outage (15 minutes or more) for the duration of the move.
+
+Updates to service status will be posted on IS&T’s [3down
+website](http://3down.mit.edu/). Messages will also be sent to zephyr
+instance “consult”. (To subscribe to this instance, type **zctl sub
+message consult \\\*** on Athena. You may need to run **zwgc -ttymode**
+first, if you are logged in remotely.)
+
+The scripts.mit.edu services have been designed with reliability in
+mind, and we are taking extra technical measures to reduce and hopefully
+eliminate downtime related to Saturday night’s move. However, we are not
+in a position to make service guarantees, and scripts should not be used
+to run critical applications that cannot tolerate downtime. (Recall that
+every Sunday morning at 6 am, there is a 10-minute outage for sites from
+the athena.mit.edu AFS cell when the AFS servers restart.)
+
+Service announcements are sent in advance to the
+[scripts-announce](http://mailman.mit.edu/mailman/listinfo/scripts-announce)
+mailing list, a low-traffic Mailman list open to the public. (The list
+receives less than one message per month on average.)
+
+— The SIPB scripts.mit.edu team\
+ [scripts@mit.edu](mailto:scripts@mit.edu)
