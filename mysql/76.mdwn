@@ -1,0 +1,12 @@
+[[!meta title="MIT SIPB MySQL Service"]]
+[**sql.mit.edu**](http://sql.mit.edu/)
+
+This service provides [MySQL](http://dev.mysql.com/doc) databases to
+[MIT certificate](http://ca.mit.edu/) holders. SQL commands can be
+issued from any host, client, and/or script of your choice; simply
+connect to the MySQL server at [**sql.mit.edu**](http://sql.mit.edu/)
+using your MySQL username and password.
+
+To sign up and create databases, visit
+[**sql.mit.edu**](http://sql.mit.edu/). For information about using the
+service with a group locker, see [the FAQ](/faq/27).
