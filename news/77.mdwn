@@ -1,0 +1,9 @@
+[[!meta title="SSLUserName being disabled"]]
+On March 28, 2008, the scripts.mit.edu team will disable the default
+`SSLUserName` functionality. The result will be that, with no other
+configuration, your scripts will no longer receive the user’s e-mail
+address in the `REMOTE_USER` environment variable. If you wish to
+recreate the old functionality, you can create a .htaccess file in your
+script’s directory containing “SSLUserName SSL\_CLIENT\_S\_DN\_Email”.
+However, we recommend that you use the SSLCert authentication module as
+described in [our FAQ](/faq/15).
