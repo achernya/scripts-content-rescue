@@ -1,0 +1,39 @@
+[[!meta title="Trac autoinstaller"]]
+We’ve just added another [autoinstaller](http://scripts.mit.edu/start/)
+to our stable: [Trac](http://trac.edgewall.org/), the issue tracker
+everyone seems to use these days for software projects.
+
+You can get a Trac instance up and running for your own project in less
+than 60 seconds by typing
+
+    $ add scripts
+    $ scripts-trac
+
+from any Athena machine, and following the instructions.
+
+Like all autoinstalled software, Trac instances will be [automatically
+upgraded](http://scripts.mit.edu/faq/44) after the Trac upstream makes a
+new release. (*[see update below]* You can [turn this feature
+off](http://scripts.mit.edu/faq/44) if you want, and keep up with
+security upgrades on your own.)
+
+This brings the count of autoinstallable applications up to 9:
+
+    advancedbook
+    e107
+    gallery2
+    joomla
+    mediawiki
+    phpbb
+    phpical
+    trac
+    wordpress
+
+You can read more about these applications on our [quick-start
+page](http://scripts.mit.edu/start/).
+
+**update**: In fact, because of the way Trac works, you can’t turn off
+autoupgrades in an autoinstalled Trac instance — there’s one central
+copy of the software on scripts.mit.edu, not a copy in each Trac
+instance. You can always do a manual install of the software if you
+really want to handle upgrades yourself.
