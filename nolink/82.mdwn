@@ -1,0 +1,10 @@
+[[!meta title="Account unknown"]]
+This account has not yet signed up for the scripts.mit.edu service, or
+the locker does not exist. To sign up for the scripts service, see [the
+homepage](http://scripts.mit.edu/). You can sign up lockers that belong
+to users or groups. To request a locker name, ask [IS&T User
+Accounts](http://web.mit.edu/accounts/).
+
+If you believe this address should work and you are receiving this
+message in error, contact [scripts@mit.edu](mailto:scripts@mit.edu) for
+assistance.
