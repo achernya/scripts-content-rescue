@@ -1,0 +1,7 @@
+[[!meta title="Upgrade to Fedora 9"]]
+scripts.mit.edu has temporarily added a Fedora 9 server to the server
+pool, in preparation for a full upgrade to Fedora 9 this summer. The
+server is otherwise configured identically to the existing servers, so
+all your scripts should continue to run. If you notice any problems with
+your scripts, please don’t hesitate to contact us at
+[scripts@mit.edu](mailto:scripts@mit.edu).
