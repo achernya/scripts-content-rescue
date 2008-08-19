@@ -1,0 +1,29 @@
+[[!meta title="Announcement: server upgrade and URL changes"]]
+We have just completed an upgrade to Fedora 9 from Fedora 7; this brings
+us in line with the latest feature, stability, and security upgrades to
+the software installed on the scripts.mit.edu servers. Most software did
+transfer, but some was unavailable in the Fedora 9 repository.
+
+For example, we do not have Python 2.4 installed because it is not in
+the Fedora repository, and we haven’t installed the compat-python24
+package from a third-party repository since we believe it is not used
+(in favor of Python 2.5). If you would like us to install Python 2.4, or
+any packages that are not currently installed, please e-mail
+[scripts@mit.edu](mailto:scripts@mit.edu).
+
+We also recently announced a planned URL change from the form\
+ **http://scripts.mit.edu/\~geofft/detect.php**\
+ to\
+ **http://geofft.scripts.mit.edu/detect.php**\
+ The new URLs are cleaner and provide improved security isolation
+(cookies, etc.) between sites. Don’t worry; the old URLs will continue
+to work until the end of fall term, and even then we will redirect them
+to the new URLs.
+
+More information is available in [the full
+announcement](http://web.mit.edu/geofft/Public/scripts-announcement-20080807)
+.
+
+We are planning an autoupgrade in the fall (well in advance of the
+cutoff) to provide support for the new URL style for scripts.mit.edu
+sites from the [autoinstallers](/start/).
