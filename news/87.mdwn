@@ -1,0 +1,14 @@
+[[!meta title="Cron issues (resolved)"]]
+We’re aware of reports that some cron scripts are failing with “No such
+file or directory” errors in **getcwd**. We’re investigating the problem
+and trying to determine the cause, and we’ll post an update when it has
+been resolved.
+
+There are also issues of files in AFS not appearing updated on scripts
+after being changed on other servers. We’re also looking into the issue.
+If you run into this, let us know at scripts@mit.edu and we’ll see what
+we can do.
+
+**Updated (08/25):** The problem has been resolved, and cron scripts
+should be working correctly. Working with the OpenAFS maintainers, we
+have identified this as a bug in OpenAFS and have reported it upstream.
