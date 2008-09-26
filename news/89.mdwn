@@ -1,0 +1,36 @@
+[[!meta title="Django on scripts.mit.edu updated to 1.0 and made default"]]
+We’ve updated the Django Python package on scripts to the \
+ recently-released 1.0 final version, as part of a standard Fedora
+package \
+ update. We will be releasing an auto-installer soon, although you can \
+ manually set up Django with the django-admin.py command and the sample
+\
+ FastCGI wrapper on the Django web site.
+
+If you’re currently using a Django 0.96 site, you can keep Django sites
+in \
+ your locker at version 0.96 by adding the following lines to the top of
+\
+ your FastCGI wrapper and manage.py, before any import statements
+referencing “django”:
+
+    __requires__='Django<1.0'
+    import pkg_resources
+    pkg_resources.require('Django<1.0')
+
+* * * * *
+
+If this does not work for you, you can try running the following Athena
+commands, where LOCKER is the locker with an old Django install:
+
+    attach LOCKER
+    mkdir -p /mit/LOCKER/lib/python2.5/site-packages
+    cd /mit/LOCKER/lib/python2.5/site-packages
+    fs sa . daemon.scripts read
+    echo 'import sys; sys.path.insert(0, "/usr/lib/python2.5/site-packages/Django-0.96_None-py2.5.egg")' > 00django-path.pth
+
+This will make the Django 0.96 package take precedence for all sites in
+your locker. You can delete the 00django-path.pth file when you’re ready
+to upgrade to 1.0.
+
+We will keep Django 0.96 available until at least the end of fall term.
