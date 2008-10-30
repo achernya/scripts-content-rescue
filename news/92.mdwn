@@ -1,0 +1,73 @@
+[[!meta title="CGI scripts will soon require the executable bit"]]
+If you write custom scripts on scripts.mit.edu, you will need to be
+aware of an important new requirement: we will soon require the **UNIX
+executable bit** to be set on your scripts. This affects scripts written
+in any language other than PHP. This is a standard requirement on UNIX
+systems, but due to a technical quirk of the original scripts.mit.edu
+design, it has not been enforced on scripts.mit.edu up to this point.
+Therefore, you may need to adjust the executable bit on some of your
+scripts.
+
+We currently plan to implement this change on Saturday, Nov. 8, 2008.
+
+What you need to do
+-------------------
+
+Make sure that the executable bit is set on any script that will be run
+on the scripts.mit.edu servers. You can check this on Athena, using a
+command similar to the following:
+
+    athena% ls -l /mit/andersk/web_scripts
+    -rwxr-xr-x  1    39270 anders     115 2008-03-14 19:11 test.cgi
+    -rw-r--r--  1    39270 anders      79 2008-04-23 22:22 test2.cgi
+
+The bit to look for is the ‘`x`’ in the fourth column. In this example,
+`test.cgi` has the executable bit set, and `test2.cgi` does not. You can
+fix `test2.cgi` as follows:
+
+    athena% chmod +x /mit/andersk/web_scripts/test2.cgi
+    athena% ls -l /mit/andersk/web_scripts
+    -rwxr-xr-x  1    39270 anders     115 2008-03-14 19:11 test.cgi
+    -rwxr-xr-x  1    39270 anders      79 2008-04-23 22:22 test2.cgi
+
+Version control
+---------------
+
+If your custom script is in a version control repository, you may
+additionally want to ensure that this change to the executable bit is
+recorded in the repository.
+
+-   For Subversion, run
+
+        svn propset svn:executable ON file.cgi
+
+    and then make a commit.
+
+-   For CVS, make a forced commit by running:
+
+        cvs commit -f -m "" file.cgi
+
+-   Git will automatically detect the change when you `git add` the
+    file.
+
+Technical details
+-----------------
+
+In the original scripts.mit.edu design of 2004, the AFS kernel module
+was modified so that the scripts.mit.edu servers would see every file as
+having the executable bit turned on. This was necessary because every
+page—including static content pages like HTML files and JPG images—was
+executed as a CGI script, using the Linux binfmt mechanism. It soon
+became clear that this mechanism had a fundamental security problem, so
+it was redesigned, but the AFS patch was kept for backwards
+compatibility.
+
+However, the nonstandard semantics of the executable bit have been
+increasingly interfering with certain applications on scripts.mit.edu,
+such as the popular Git revision control system. We have therefore
+decided to disable it after a short transitional period.
+
+We are collecting logs of scripts that are being executed without a
+proper executable bit, and we will contact the owners of any affected
+scripts that we find. If your custom scripts are infrequently accessed,
+you may need to test them yourself using the directions above.
