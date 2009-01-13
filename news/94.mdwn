@@ -1,0 +1,14 @@
+[[!meta title="PLT Scheme (mzscheme) command line changed"]]
+As part of a standard system upgrade, we upgraded PLT Scheme to a newer
+version that seems to have different command line options. In
+particular, if you were using the syntax
+
+**mzscheme -L plt-pretty-big-text.ss lang**
+
+to enable the “Pretty Big” language, you now need to say
+
+**mzscheme -l lang/plt-pretty-big-text.ss**
+
+(note the change from capital to lowercase L). In addition, to get a
+REPL, you’ll need to say **-i** with this option. Some other options
+have also been removed; run **mzscheme —help** to see what is available.
