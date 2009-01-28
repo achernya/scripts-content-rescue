@@ -1,0 +1,33 @@
+[[!meta title="MIT SIPB Scheduled Jobs Service (Cron)"]]
+The scheduled jobs service uses
+[cron](http://www.google.com/search?q=cron) to allow people to set up
+scripts to run at certain times. Although this service has been designed
+with reliability in mind, it should not be used to run critical
+applications that cannot tolerate downtime.
+
+#### **To sign up for the service:**
+
+athena% add scripts\
+ athena% signup-cron\
+
+(If you are confused about how to run the above commands on Athena,
+e-mail scripts@mit.edu for assistance. You must have an [Athena
+account](http://web.mit.edu/olh/Register/) and understand the [MITnet
+rules of use](http://web.mit.edu/olh/Welcome/rules.html) in order to use
+the service.)
+
+This signup process will create a **cron\_scripts** directory and place
+a sample crontab file in it. This provided crontab contains some
+information that should help you get started. Changes to your crontab
+will never take effect until you explicitly load your crontab. You can
+do so by changing to the `cron_scripts` directory and running
+`cronload crontab` (if you do so from Athena, make sure you have
+previously run `add scripts` in your login shell).
+
+Finally, add yourself to the [scripts-announce mailing
+list](https://mailman.mit.edu/mailman/listinfo/scripts-announce) if you
+would like to receive announcements of major service changes and
+outages. This list receives less than one e-mail per month on average.
+
+For more information, see our list of [Frequently Asked
+Questions](../faq/).
