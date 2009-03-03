@@ -1,0 +1,12 @@
+[[!meta title="Subversion upgraded to version 1.5"]]
+Coincident with the `svn` locker and with
+[Linerva](http://web.mit.edu/linerva/www/), Subversion on
+scripts.mit.edu has been upgraded to version 1.5. This is mostly of
+interest in case your scripts website is a SVN checkout; unless you’re
+using BDB (which doesn’t really work in AFS anyway), v1.4 and v1.5 can
+be used against the same repository.
+
+We have not yet enabled GSSAPI authentication for our [Subversion
+hosting service](/faq/93/) because it is not directly compatible with
+our virtual hosting security model, although we’re looking into how to
+make this work, and it is a planned feature.
