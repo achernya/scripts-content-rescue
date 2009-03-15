@@ -1,0 +1,9 @@
+[[!meta title="Trac autoinstalls updated"]]
+We’ve performed an update of [Trac](http://trac.edgewall.org)
+[autoinstalls](http://scripts.mit.edu/start) for all users who accept
+[Scripts security updates](http://scripts.mit.edu/faq/44). This update
+corrects a data confidentiality bug caused by a typo which was
+discovered by a member of the Scripts Team. The specific problem was a
+malformed `.htaccess` file in the `tracdata` directory. This file is in
+place to prevent people from viewing configuration and other private
+data over the web.
