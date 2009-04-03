@@ -1,0 +1,8 @@
+[[!meta title="MediaWiki autoinstaller now installs version 1.14.0"]]
+We’ve just upgraded the [MediaWiki](http://www.mediawiki.org/)
+[autoinstaller](http://scripts.mit.edu/start) on
+[scripts.mit.edu](http://scripts.mit.edu/) to install version 1.14.0 by
+default. This is the most current version available from MediaWiki. We
+plan to conduct [automatic upgrades](http://scripts.mit.edu/faq/44) of
+existing wikis (most of which are at either version 1.5.8 or 1.11.0) to
+this new version in the near future.
