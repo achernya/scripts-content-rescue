@@ -1,0 +1,7 @@
+[[!meta title="WordPress autoinstaller upgraded to version  2.7.1"]]
+We’ve upgraded the [WordPress](http://wordpress.org) autoinstaller on
+scripts.mit.edu to install WordPress version 2.7.1. This is the most
+current stable version of WordPress and features an improved user
+interface, improved control over your blog’s layout and settings, and
+[many other
+improvements](http://wordpress.org/development/2008/12/coltrane/).
