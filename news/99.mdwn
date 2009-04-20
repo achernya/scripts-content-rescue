@@ -1,0 +1,22 @@
+[[!meta title="Problems with some scripts sites over the weekend"]]
+Over the weekend we had some issues with content for scripts.mit.edu
+virtual hosts/CNAMEs (\*.mit.edu sites, only not \*.scripts.mit.edu
+sites) that had not requested a SSL server certificate assigned to them.
+The issue mostly affected these sites when accessed over SSL on port
+444.
+
+First, for a couple of minutes on Friday night, I made a change to one
+of our web servers that accidentally caused requests to all such sites
+to receive the content for axo.mit.edu (the alphabetically first vhost
+with its own certificate). That change did not reach the other server,
+and the misdirection was fixed as soon as I realized my mistake.
+
+However, this only fixed http and https, and did not take effect for
+port :444. This was corrected earlier today after one of our users
+reported it while testing a site that he had requested an SSL
+certificate for.
+
+I sincerely apologize for any trouble this may have caused. Hopefully
+this did not affect many sites, because those intending to use SSL
+should have a certificate, and sites with certificates installed were
+not affected.
