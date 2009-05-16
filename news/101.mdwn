@@ -1,0 +1,5 @@
+[[!meta title="phpBB autoinstaller now installs version 3.0.4"]]
+We’ve just upgraded the [phpBB](http://www.phpbb.com/)
+[autoinstaller](http://scripts.mit.edu/start/) on
+[scripts.mit.edu](http://scripts.mit.edu/) to install version 3.0.4 by
+default. This is the most current version available from phpBB.
