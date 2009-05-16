@@ -1,0 +1,6 @@
+[[!meta title="Gallery2 autoinstaller now installs version 2.3"]]
+On April 25, we upgraded the [Gallery2](http://gallery.menalto.com/)
+[autoinstaller](http://scripts.mit.edu/start/) on
+[scripts.mit.edu](http://scripts.mit.edu/) to install version 2.3 by
+default. This is the most current stable version available from the
+authors of Gallery2.
