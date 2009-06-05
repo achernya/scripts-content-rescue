@@ -1,0 +1,26 @@
+[[!meta title="Java no longer broken on scripts.mit.edu"]]
+Yesterday it was brought to our attention that our resource limits were
+preventing Java from working, because the JVM attempted to allocate more
+memory than our limits.
+
+Because of problems in the past with Java instances using 2 GB or more
+memory causing out-of-memory conditions, we recently reimplemented a 1
+GB per-process [resource limit](/faq/34/). However, the Java startup
+code’s attempt at allocating a “reasonable fraction” of the total
+physical memory on the server makes it attempt to grab about 1.05 GB.
+(This is a [known issue](http://bugs.sun.com/view_bug.do?bug_id=6374896)
+in Java.) This amount might be reasonable for a server running nothing
+but Java, but is entirely too much for a shared host like
+scripts.mit.edu. So, we’re setting the JAVA\_TOOL\_OPTIONS=-Xmx128M
+environment variable to limit the maximum Java heap size, and Java
+should be working again.
+
+If this isn’t enough for your application, you can create a
+**.hotspotrc** file in the same directory as your script or Java code,
+containing the option **MaxHeapSize=256M** (or possibly 512M; note that
+we’ve tested 768M and found it to be unstable), or you can pass
+**-Xmx256M** on your Java command line.
+
+It looks like we don’t have very many Java users at all because this
+problem went unreported, but if you have any questions, as always,
+please let us know at [scripts@mit.edu](mailto:scripts@mit.edu).
