@@ -1,0 +1,18 @@
+[[!meta title="*.scripts.mit.edu certificate signed by Equifax"]]
+We’re glad to let you know that we’ve purchased an SSL/HTTPS certificate
+for \*.scripts.mit.edu domain names that’s signed by a well-known
+signatory, Equifax, instead of by the MIT Certificate Authority. This
+means that you can use HTTPS URLs for those domain names in any popular
+browser without having to download and trust the MIT CA in advance —
+great news for those of you running websites that target people outside
+the MIT community. MIT client certificates continue to work as normal.
+
+We’ll also be installing an Equifax-signed certificate for
+https://scripts.mit.edu/ soon, but we continue to encourage the use of
+\*.scripts.mit.edu names instead of scripts.mit.edu/\~ names for their
+improved security properties.
+
+For those of you with \*.mit.edu names, you can continue to use or
+request MIT-signed certificates as always, or you can have the secure
+parts of your site use a \*.scripts.mit.edu URL or discuss other
+arrangements with us.
