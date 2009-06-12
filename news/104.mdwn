@@ -1,0 +1,7 @@
+[[!meta title=".htaccess files no longer require mode 777"]]
+It is no longer necessary to use `chmod 777 .htaccess` to mark your
+.htaccess files readable by Apache. As of May 30, 2009, Apache is now
+given implicit read access to all file with names beginning in “.ht”,
+such as .htaccess or .htpasswd (assuming the AFS directory is readable
+by daemon.scripts, as is automatically the case in your web\_scripts
+directory by default).
