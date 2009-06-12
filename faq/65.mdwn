@@ -1,0 +1,9 @@
+[[!meta title="WordPress becomes inaccessible after changing settings"]]
+This is probably because WordPress tried to create an `.htaccess` file,
+and `.htaccess` files need [special
+treatment](http://scripts.mit.edu/faq/47/) to work with the scripts
+server. Follow [these instructions](http://scripts.mit.edu/faq/48/) to
+mark the `.htaccess` file as accessible to the Apache web server.
+
+We expect this problem to be corrected in a future update to our
+WordPress autoinstaller.
