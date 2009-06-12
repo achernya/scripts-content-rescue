@@ -1,0 +1,6 @@
+[[!meta title="My .htaccess or .htpasswd file is not working.  Any suggestions?"]]
+Your `.htaccess` and `.htpasswd` files need to be [marked as accessible
+to the Apache web server](/faq/48/).
+
+Additionally, you may want to read more about [what files the scripts
+server normally can and cannot access](/faq/49/).
