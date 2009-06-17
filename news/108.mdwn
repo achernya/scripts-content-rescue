@@ -1,0 +1,16 @@
+[[!meta title="scripts.mit.edu Fedora 11 Transition"]]
+On Thursday, July 9, 2009, all of the
+[scripts.mit.edu](http://scripts.mit.edu/) servers will be upgraded from
+[Fedora 9](https://fedoraproject.org/wiki/Releases/9) to [Fedora
+11](https://fedoraproject.org/wiki/Releases/11), which was released on
+June 9. We strongly encourage you to [test your
+website](/upgrade#testing) as soon as possible, and to contact us at
+[scripts@mit.edu](mailto:scripts@mit.edu) or come to our [office
+hours](/upgrade#hours) in W20-557 if you experience any problems. The
+easiest way to test your site is to run the following commands at an
+Athena workstation and then visit your website in the browser that
+opens, but [see this page](/upgrade) for more details and important
+information: \
+\
+` athena% add scripts`\
+ `athena% firefox-test `
