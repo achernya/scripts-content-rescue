@@ -1,0 +1,6 @@
+[[!meta title="Joomla autoinstaller now installs version 1.5.11"]]
+We’ve just upgraded the [Joomla](http://www.joomla.org/)
+[autoinstaller](http://scripts.mit.edu/start) on
+[scripts.mit.edu](http://scripts.mit.edu/) to install version 1.5.11 by
+default. This is the most current version available from the Joomla
+developers.
