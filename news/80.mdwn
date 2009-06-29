@@ -1,0 +1,17 @@
+[[!meta title="Update to WordPress 2.3.3"]]
+We’ve just updated our [autoinstaller](http://scripts.mit.edu/start/)
+for [WordPress](http://wordpress.org/) to 2.3.3, which includes a
+security update.
+
+You can install WordPress via:
+
+    $ add scripts
+    $ scripts-wordpress
+
+from any Athena machine, and following the instructions.
+
+By default, we automatically update your installations to keep up with
+security updates. We’ve updated all 2.3.2 installations to 2.3.3 for
+those who haven’t disabled upgrades. (You can [turn off
+autoupgrading](http://scripts.mit.edu/faq/44) if you want, and keep up
+with security upgrades on your own.)
