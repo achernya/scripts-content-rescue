@@ -1,0 +1,4 @@
+[[!meta title="WordPress autoinstaller upgraded to version 2.8.2"]]
+We’ve upgraded the [WordPress](http://wordpress.org) autoinstaller on
+scripts.mit.edu to install WordPress version 2.8.2. This is the most
+current stable version of WordPress.
