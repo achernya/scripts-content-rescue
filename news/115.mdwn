@@ -1,0 +1,14 @@
+[[!meta title="Django autoinstalls now see updates to your code instantly!"]]
+The [Django](http://www.djangoproject.com/)
+[autoinstaller](http://scripts.mit.edu/start/) has, up until now, told
+you that when you update your code files, you need to `touch index.fcgi`
+in order for the changes to be reflected on the web. Unfortunately, that
+feature has never worked on [scripts.mit.edu](http://scripts.mit.edu/).
+We’ve finally identified the reason for this issue, and implemented an
+improvement to the autoinstaller — it is no longer necessary to kill
+your `python` processes or `touch` your `index.fcgi` files. Updates to
+your `.py` files are now reflected immediately on the web without you
+having to do anything else.
+
+We have applied this enhancement to all existing Django autoinstalls
+that accept [our automatic updates](http://scripts.mit.edu/faq/44).
