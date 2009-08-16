@@ -1,0 +1,34 @@
+[[!meta title="Ruby on Rails autoinstaller"]]
+At long last, we’ve just deployed a brand new
+[autoinstaller](http://scripts.mit.edu/start/) for [Ruby on
+Rails](http://rubyonrails.org/), the popular
+[Ruby](http://www.ruby-lang.org/) based web application framework.
+
+Ruby on Rails has been supported on
+[scripts.mit.edu](http://scripts.mit.edu/) for quite some time, but the
+setup process was entirely manual, and involved many nonintuitive steps.
+You can now get a working Rails installation up and running for your own
+application in less than 60 seconds by typing
+
+    $ add scripts
+    $ scripts-rails
+
+from any Athena machine, and following the instructions.
+
+This brings the count of autoinstallable applications up to 12:
+
+    advancedbook
+    django
+    e107
+    gallery2
+    joomla
+    mediawiki
+    phpbb
+    phpical
+    rails
+    trac
+    turbogears
+    wordpress
+
+You can read more about these applications on our [quick-start
+page](http://scripts.mit.edu/start/).
