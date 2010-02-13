@@ -1,0 +1,59 @@
+[[!meta title="How can I sign up for Scripts if my locker is not publicly listable?"]]
+***Note: We strongly recommend that most users keep the default
+permissions that their account came with (which includes a
+publicly-listable home directory). The advice below is intended for
+advanced users who are sure they wish to block public listing of their
+home directory, and makes it much more difficult for the Scripts Team
+and other support groups around MIT to debug user problems. Please
+carefully consider whether the difficulty you may experience when
+requesting assistance in the future is outweighed by the benefit of
+preventing your locker from being listed.***\
+\
+\
+ If you have removed permissions for your locker to be publicly listable
+and you try to sign up for scripts.mit.edu, you will receive the
+following error message:\
+ \
+\
+
+* * * * *
+
+\
+
+` ERROR: The scripts servers cannot verify the permissions of the locker YOURLOCKER. This is probably because your locker is not publicly listable. You can remedy this signup problem and make your locker publicly listable by running “fs setacl /mit/YOURLOCKER system:anyuser l” (that’s a lowercase L at the end).  NOTE: This will make it possible for the public (including anyone viewing http://web.mit.edu/YOURLOCKER) to see the names of your files and the list of people who have access to them, though it will not cause the contents of your files to be publicly readable.  If you are unwilling to have your locker listable by the public, please contact scripts@mit.edu for information about other ways to work around the problem.`\
+
+* * * * *
+
+\
+ The AFS kernel module on the scripts.mit.edu servers prevents the
+permissions that are granted to daemon.scripts (which is the AFS
+username that the scripts servers authenticate with) from being
+exercised except by the scripts.mit.edu user corresponding to the
+locker. This means that only the scripts user for your locker can see or
+write files in your locker that daemon.scripts has AFS permissions on.
+This is the basic way that we isolate users from each other.\
+ \
+\
+\
+ Unfortunately, that means that until your user has been created by the
+signup process, if your locker is only listable to daemon.scripts, the
+scripts servers still cannot read it. The usual way to work around this
+is to run ‘fs setacl /mit/YOURLOCKER system:anyuser l’ if you’re willing
+to have your locker be world-listable. For the rare case where someone
+is unwilling to have their locker publicly listable, there is one
+alternative involving granting one of the site-defined capital letter
+AFS permissions (“E”) to daemon.scripts that tells the kernel module to
+allow our signup user to exercise the daemon.scripts permissions. We
+don’t generally recommend this because it’s fairly confusing and makes
+debugging problems rather difficult.\
+ \
+\
+\
+ If you are absolutely certain that you need this configuration, you
+should grant the “l” and “E” permissions to daemon.scripts by running a
+command like this on Athena:\
+ \
+\
+ `athena% fs setacl /mit/YOURLOCKER daemon.scripts lE`\
+ \
+(That’s a lowercase “L” and an uppercase “E”.)
