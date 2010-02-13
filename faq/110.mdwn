@@ -1,0 +1,18 @@
+[[!meta title="What are the names of the various scripts.mit.edu servers?"]]
+scripts.mit.edu makes use of load balancing across several different
+servers to handle the enormous number of requests that are served each
+day. It is very important that you ***not*** hardcode the names of the
+servers into your scripts, because different servers may be in the load
+balancer pool at any given time.
+
+You can find out the current list of active servers by visiting this URL
+at any time:\
+ [http://scripts.mit.edu/servers](http://scripts.mit.edu/servers)
+
+You may also obtain this information via finger:
+
+    athena% finger @scripts.mit.edu
+
+The section of the finger output that corresponds to balancing of web
+requests to ports 80, 443, and 444 is the part under the heading:\
+ `FWM 2 wlc persistent 600`
