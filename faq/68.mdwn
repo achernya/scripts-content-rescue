@@ -1,0 +1,24 @@
+[[!meta title="How do I reset my password for MediaWiki?"]]
+The easiest way to avoid this problem is to set an e-mail address in
+your account, so you can use the “Mail me a new password” feature.
+However, if you find that you’ve forgotten the password to an account on
+your wiki, and you don’t have an e-mail address set for it, you can
+reset its password as follows:
+
+Log in to [phpMyAdmin](http://sql.mit.edu/phpMyAdmin/) with your [SQL
+password.](/faq/59/)
+
+From the menu on the left, select the database corresponding to your
+wiki, and select the “user” table within it.
+
+Click “Browse” at the top, and note down the user ID for the account
+whose password you want to reset. (This will be 1 for the first
+account.)
+
+Click “SQL” at the top, and run the following command, replacing “uid”
+with the user ID and “newpassword” with the new password for the
+account:
+
+-   UPDATE user SET user\_password = MD5(CONCAT(user\_id, ‘-’,
+    MD5(’*newpassword*‘))) WHERE user\_id = *uid*
+
