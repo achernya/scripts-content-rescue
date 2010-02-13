@@ -1,0 +1,8 @@
+[[!meta title="Are .htaccess.mit files supported?"]]
+scripts.mit.edu uses .htaccess files instead of .htaccess.mit files.
+
+You can use .htaccess files in order to [restrict access to your website
+using MIT certificates](http://scripts.mit.edu/faq/15/).
+
+You can also [protect content using
+passwords](http://scripts.mit.edu/faq/23/).
