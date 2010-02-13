@@ -1,0 +1,45 @@
+[[!meta title="Do you enforce any resource limits?"]]
+Yes. The server enforces the following resource limits on web scripts:\
+
+    core file size          (blocks) 0
+    data seg size           (kbytes) 1048576
+    file size               (blocks) unlimited
+    pending signals                  32255
+    max locked memory       (kbytes) 32
+    max memory size         (kbytes) 524268
+    open files                       1024
+    pipe size            (512 bytes) 8
+    POSIX message queues     (bytes) 819200
+    stack size              (kbytes) 10240
+    cpu time               (seconds) 300
+    max user processes               4096
+    virtual memory          (kbytes) 524288
+    file locks                       unlimited
+
+These limits exist primarily to protect the server from runaway scripts.
+
+There are also some timeouts in the Apache configuration that apply to
+web scripts. In particular, if a CGI or FastCGI application goes 30
+seconds without writing and flushing any data back to Apache, the
+request will be aborted.
+
+Finally, there are also looser limits placed on processes launched from
+a non-web context:\
+
+    core file size          (blocks) 0
+    data seg size           (kbytes) 1048576
+    file size               (blocks) unlimited
+    pending signals                  32255
+    max locked memory       (kbytes) 32
+    max memory size         (kbytes) 524268
+    open files                       1024
+    pipe size            (512 bytes) 8
+    POSIX message queues     (bytes) 819200
+    stack size              (kbytes) 10240
+    cpu time               (seconds) unlimited
+    max user processes               1024
+    virtual memory          (kbytes) 1048576
+    file locks                       unlimited
+
+If you find yourself running into these limits on a regular basis,
+please contact us to let us know what is triggering the limits.
