@@ -1,0 +1,2 @@
+[[!meta title="Can my scripts send zephyrs?"]]
+Yes. You can send unauthenticated zephyrs using “zwrite -d”.
