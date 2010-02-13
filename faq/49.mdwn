@@ -1,0 +1,27 @@
+[[!meta title="Why does reading files cause 'permission denied' errors on scripts.mit.edu?"]]
+If you get this error when ssh’d to scripts and trying to access another
+locker, please make sure you’ve followed the [directions to ssh to
+scripts](/faq/41/). If you are getting this error when running scripts,
+or when accessing files under the locker you’re logged in as, please
+continue reading.
+
+On scripts.mit.edu, your scripts are served using special Athena
+filesystem privileges associated with your account on scripts.mit.edu.
+These privileges allow your scripts.mit.edu account to access any file
+that is **both** 1) inside your AFS locker and 2) accessible by
+“daemon.scripts” (a special set of AFS credentials owned by the script
+server).
+
+The signup process takes care of setting up your web\_scripts directory
+so that daemon.scripts has access to your web\_scripts directory and its
+subdirectories. To give daemon.scripts read access to other parts of
+your home directory, you can do, for example:
+
+    athena% add consult
+    athena% fsr sa ~/my-scripts-data/ daemon.scripts read
+
+Certain kinds of “non-executable content” (for example, images)
+underneath your web\_scripts directory are also served to the web using
+your scripts.mit.edu credentials. Here is [the complete list](/faq/50)
+of the file extensions served directly to the web using your
+scripts.mit.edu account.
