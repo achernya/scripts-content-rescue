@@ -1,0 +1,16 @@
+[[!meta title="Why do my mail scripts not generate bounces?"]]
+The scripts server interprets procmail failures as temporary failures,
+queueing the mail until the procmailrc is fixed. This is useful if your
+procmailrc is unreadable or broken, but it can make debugging difficult.
+If you want to explicitly bounce a message, you can use a stanza similar
+to this in your procmailrc file:
+
+    :0:
+    * ^Delivered-To:.*USER_NAME\+TAG@.*
+    {
+            EXITCODE=67
+            HOST
+    }
+
+The list of recognized exit codes can be found in the [sysexits(3)
+manpage](http://www.gsp.com/cgi-bin/man.cgi?section=3&topic=sysexits).
