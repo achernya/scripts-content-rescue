@@ -1,0 +1,53 @@
+[[!meta title="How do I move my MediaWiki to a new locker?"]]
+Unfortunately, it is a multi-step process to move a MediaWiki
+installation to a new locker.
+
+To move a MediaWiki located in directory `/mit/A/web_scripts/index` to a
+new directory `/mit/B/web_scripts/index`:
+
+​1. Attach the two directories so as to make administrative tasks
+easier:\
+ `athena% attach A`\
+ `athena% attach B`
+
+​2. To sign up the second locker (if necessary)\
+ `athena% add scripts`\
+ `athena% signup-web B`
+
+​3. Copy the Databases using SQL.\
+ 3b) While in Locker B signup for sql\
+ `athena% signup-sql`\
+ 3c) Sign into phpMyAdmin web interface at http://sql.mit.edu/\
+ 3d) You will need the username and password located in the .my.cnf file
+of each locker (i.e. `/mit/A/.my.cnf`).\
+ 3e) Sign into the SQL account for locker A using phpMyAdmin first.\
+ 3f) Click on A+index\
+ 3g) Use the export button to download a copy of the database to your
+computer.\
+ 3h) Exit and Sign into the SQL account for locker B (NOT phpMyAdmin)\
+ 3i) Create a new database using the “add” field in the bottom right of
+the list of databases.\
+ 3j) Sign into phpMyAdmin for locker B\
+ 3k) Click on B+index\
+ 3l) Use the import tool to import the file you just exported from your
+\
+ desktop. Be sure to select the correct character set.
+
+​4. Recursively copy the software,\
+ `athena% cp -r /mit/A/web_scripts/index /mit/B/web_scripts`
+
+​5. Update settings:\
+ 5a) Update the `/mit/B/web_scripts/index/LocalSettings.php` with the
+wgSitename,\
+ wgScriptPath, wgDBname, wgDBuser, and wbDBpassword lines to reflect\
+ the new locker
+
+5b) Update the `/mit/B/web_scripts/index/php.ini` file with the correct
+locker username for the\
+ upload\_tmp\_dir and the session.save\_path (otherwise the computer
+will not\
+ remember that you are logged in)
+
+​6) Be happy.
+
+Helpful site: http://www.mediawiki.org/wiki/Manual:Moving\_a\_wiki
