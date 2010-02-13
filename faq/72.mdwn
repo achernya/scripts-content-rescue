@@ -1,0 +1,3 @@
+[[!meta title="How do I redirect all visitors to my site to a certificate-protected page?"]]
+See [Can I authenticate people using MIT personal
+certificates?](/faq/15).
