@@ -1,0 +1,50 @@
+[[!meta title="Can I use scripts.mit.edu to generate an Apache-style log file for my web.mit.edu site?"]]
+Yes. The combination of Server Side Includes on `web.mit.edu`, a Perl
+script, and the SIPB web script service allows you to get a log file
+similar to the data you would be able to get if you were hosting the web
+pages on your own server.
+
+How to set it up:
+
+​1. [Sign up to use scripts.mit.edu](/web). \
+ 2. Save the
+[fake\_log.pl](http://web.mit.edu/scripts/www/fake_log.pl.txt) script
+into your `~/web_scripts` directory with a name that ends in `.pl`.\
+ 3. Make sure your web pages have the extension `.shtml`, and insert the
+following code into your web pages, replacing `USERNAME` with your
+username (and, if you called `fake_log.pl` something else, use the name
+that you chose):
+
+    <!-- Generate data that looks like an Apache log -->
+    <img src="http://scripts.mit.edu/~USERNAME/fake_log.pl?uri=
+    <!--#echo var="DOCUMENT_URI" -->&amp;ref=
+    <!--#echo var="HTTP_REFERER" -->&amp;met=
+    <!--#echo var="REQUEST_METHOD" -->&amp;pro=
+    <!--#echo var="SERVER_PROTOCOL" -->" 
+    width="1" height="1" alt="fake image for tracking"/>
+
+​4. The `fake_log.pl` script logs each hit to a file called `fake.log`
+in your `~/web_scripts` directory. This log is designed to be compatible
+with Apache log files, so that you can use any of the myriad tools for
+analyzing and visualizing data from Apache log files.
+
+Some questions and answers:
+
+**How does this work?**
+
+The `fake_log.pl` script works by taking the data returned from several
+Server Side Includes that work on `web.mit.edu` and using that and other
+data to write out an entry with the same format that Apache uses.
+
+**Since you’re just feeding information into a Perl script instead of
+getting the real server logs, couldn’t someone feed the Perl script
+garbage, or misleading information?**
+
+Yes. Invalid information will probably make the Perl script just plain
+fail. This method of logging data does not prevent people from
+deliberately feeding you bad data, but in most cases, no one will care
+to take the time to do so.
+
+**Will this log hits from text-only browsers?**\
+ Since this tracking method relies on the browser loading images, this
+will not log hits from text-only browsers.
