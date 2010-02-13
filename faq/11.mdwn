@@ -1,0 +1,14 @@
+[[!meta title="How can I access my MySQL databases?"]]
+First you’ll need to [sign up for sql.mit.edu](/faq/66).
+
+After that, you must use the [sql.mit.edu web
+interface](http://sql.mit.edu/) to **create and drop databases**. A
+regular MySQL client, such as
+[phpMyAdmin](http://scripts.mit.edu/~sql/phpMyAdmin/) (described below),
+cannot be used for these operations.
+
+**All other SQL commands** can be issued from any host, client, and/or
+script of your choice; simply connect to the MySQL server at
+`sql.mit.edu` using your new MySQL username and password. You can also
+access your databases using an online web interface called
+[phpMyAdmin](http://scripts.mit.edu/~sql/phpMyAdmin/).
