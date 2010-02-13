@@ -1,0 +1,28 @@
+[[!meta title="Can my scripts write data somewhere?"]]
+You can give your scripts permission to write data to subdirectories of
+your Athena home directory by granting appropriate AFS access to
+**daemon.scripts** (we provide sample commands below).
+
+Each scripts.mit.edu user can also write up to 10MB (or 10k inodes) to
+/tmp. You should only write truly temporary data to /tmp.
+
+Here are some commands that might be helpful:
+
+The following command will grant the script server write access to\
+ your current directory (cd into the directory that you want to write to
+and\
+ then run this command):\
+
+    fs sa . daemon.scripts write
+
+The following command will grant the script server write access to all
+subdirectories of your current directory (you could cd into a particular
+directory and then run this command in order to grant the script server
+write access to all subdirectories of that directory):\
+
+    athrun scripts fssar daemon.scripts write
+
+The following command will list the access control list for the current
+directory:\
+
+    fs la .
