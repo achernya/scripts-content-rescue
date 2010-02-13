@@ -1,0 +1,17 @@
+[[!meta title="How can I make Dreamweaver work with my MySQL databases?"]]
+Dreamweaver’s MySQL interface interprets a “+” character as a space, so
+when looking for database “USERNAME+DBNAME” it looks for “USERNAME
+DBNAME”.
+
+CGI scripts on the web have a long history of using + as a substitute
+for space.
+
+To prevent Dreamweaver from doing this, percent-encode the “+” sign as
+“%2B”. Ask it to use a database name like:
+
+-   USERNAME%2BDBNAME
+
+for example,
+
+-   presbrey%2Bwiki
+
