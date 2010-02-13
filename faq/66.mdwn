@@ -1,0 +1,25 @@
+[[!meta title="How can I signup my personal or group locker for the MySQL service?"]]
+If your group does not already have a locker, start by mailing
+[accounts@mit.edu](http://web.mit.edu/accounts) to get one.
+
+**Please note**: MySQL has hard-coded a 16 character limit for usernames
+into its server and client. Since all MySQL accounts are linked to
+Athena lockers by name, *your locker must be no more than 16 characters
+to use the sql.mit.edu service*.
+
+Individuals or groups that have lockers can easily register for a MySQL
+account at an Athena prompt:
+
+`athena$ add scripts`\
+ `athena$ signup-sql`
+
+Individuals wishing to register an account for themselves should select
+**option \#1** at the first prompt. To register an account for a group,
+select **option \#2** at the first prompt.
+
+You can then read your password from
+[/mit/*locker*/.sql/my.cnf](/faq/59). You can use this to log in to
+[sql.mit.edu](http://sql.mit.edu) under the “SQL Password” option. You
+will need to create and drop databases from sql.mit.edu, but you can do
+all other operations from any MySQL client. We recommend using
+[phpMyAdmin](http://sql.mit.edu/phpMyAdmin/).
