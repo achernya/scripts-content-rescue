@@ -1,0 +1,5 @@
+[[!meta title="How do I list my current crontab?  How do I remove my crontab?"]]
+[ssh to scripts.mit.edu](/faq/41) from an Athena computer. “crontab -l”
+will list your current crontab. “crontab -r” will remove your crontab.
+Note that you must ssh from an Athena computer; no password will be
+required.
