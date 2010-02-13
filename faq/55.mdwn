@@ -1,0 +1,22 @@
+[[!meta title="How do I enable math support in my MediaWiki wiki?"]]
+Here is the procedure for enabling math support for a scripts.mit.edu
+wiki:
+
+​1) [ssh to scripts.mit.edu](http://scripts.mit.edu/faq/41/)
+
+​2) cd to your wiki’s math directory and run **make**
+
+​3) Edit the LocalSettings.php file in the base directory of your wiki
+so that the line
+
+**\$wgUseTeX = false;**
+
+reads
+
+**\$wgUseTeX = true;**
+
+You will then need to re-save any existing pages that contain equations
+in order to have the equations appear correctly.
+
+If you encounter trouble with this procedure, please contact
+scripts@mit.edu.
