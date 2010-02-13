@@ -1,0 +1,31 @@
+[[!meta title="What is .my.cnf? What is my sql.mit.edu password?"]]
+Your sql.mit.edu login information is in your locker, in the file
+“.my.cnf”. This is a hidden file (dotfile), so you will need to use **ls
+-a** instead of **ls** to see it. You can still view and edit the file
+just by specifying the filename.
+
+athena% **cd /mit/***locker*\
+ athena% **cat .my.cnf**\
+ [mysql]\
+ host=sql.mit.edu\
+ user=*username*\
+ password=*password*
+
+This file should be a link to “.sql/my.cnf” in your locker, and only
+accessible by the locker owner and the scripts server (regardless of
+whether the root of the locker is publicly readable or not).
+
+If you update your MySQL password on the [MIT SIPB MySQL
+interface](http://sql.mit.edu/), you will need to update this file
+manually with your new MySQL password. Otherwise, the [scripts
+auto-installers](/start), as well as the **mysql** command-line client,
+will not be able to log in properly. If you have already installed
+software, you will need to update the password there too
+(LocalSettings.php for MediaWiki, wp-config.php for WordPress, etc.)
+
+If you have lost your MySQL password and, it’s not in your .my.cnf file,
+you can reset it for your personal account by logging into
+[sql.mit.edu](http://sql.mit.edu/) with your MIT certificate. If you
+have lost the password for a group locker, please e-mail
+[sql@mit.edu](http://scripts.mit.edu/sql.mit.edu) for help getting it
+reset.
