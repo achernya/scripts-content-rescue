@@ -1,0 +1,22 @@
+[[!meta title="Can I limit access to my scripts and/or other content using passwords?"]]
+Yes. Follow these instructions to limit web access to a subdirectory of
+your web\_scripts directory:
+
+​1. Decide upon one or more usernames and passwords that will be allowed
+to access the content. Do not use your Athena password!\
+ 2. On Athena, cd to the directory to which you want to limit access.\
+ 3. Run “add scripts”.\
+ 4. Run “webaccess allow USER\_NAME” and enter the desired password for
+USER\_NAME upon request.\
+ 5. Repeat step \#4 for every username that you want to be able to
+access the content.\
+ 6. Use a web browser to confirm that access is being restricted
+correctly.
+
+“webaccess remove USER\_NAME” will remove a user’s access.\
+ “webaccess reset” will clear all access restrictions on a directory.
+
+(webaccess works by creating .htaccess and .htpasswd files for you)
+
+You can also limit access using [MIT
+certificates](http://scripts.mit.edu/faq/15/).
