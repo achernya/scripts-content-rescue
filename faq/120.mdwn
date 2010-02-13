@@ -1,0 +1,33 @@
+[[!meta title="Does scripts.mit.edu publish information about who runs which websites?"]]
+We don’t go out of our way to make this information available, nor to \
+ protect it.
+
+There is no listing of websites hosted on scripts.mit.edu or their \
+ maintainers. If we’re asked to by IS&T staff (e.g., IT Security or User
+\
+ Accounts) or law enforcement, we will identify the maintainer of a
+single \
+ website. We may also do so if needed in the process of answering a \
+ good-faith support ticket about the maintenance of that website. \
+ Otherwise, we avoid giving this information out to the public for the \
+ asking.
+
+That said, for multiple technical reasons ranging from the configuration
+\
+ of our servers to the properties of various parts of Athena
+infrastructure \
+ we build upon, it’s generally possible to determine the ownership of a
+\
+ website with some concerted effort, including which users or groups
+have \
+ the ability to publish the site and who was the original creator of a
+file \
+ in a locker. Most of this is due to the Athena locker model itself, and
+\
+ applies equally to sites hosted on other services such as web.mit.edu.
+
+Most other MIT hosting options will also reveal the owner’s identity \
+ publicly through Moira’s hostname registry. If you wish to have a truly
+\
+ anonymous website, you’ll need to get hosting independent of the MIT \
+ infrastructure.
