@@ -1,0 +1,12 @@
+[[!meta title="May I include that stylish "powered by scripts" image on my website?"]]
+You are indeed welcome to include this “powered by scripts” image on any
+website served by scripts.mit.edu. If you include this image, we
+recommend that you make it a link to scripts.mit.edu using the following
+HTML:
+
+    <a href="http://scripts.mit.edu/">
+    <img alt="powered by scripts.mit.edu"
+    src="http://scripts.mit.edu/media/powered_by.gif" /></a>
+
+[![powered by
+scripts.mit.edu](http://scripts.mit.edu/media/powered_by.gif)](http://scripts.mit.edu/)
