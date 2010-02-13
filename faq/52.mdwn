@@ -1,0 +1,7 @@
+[[!meta title="Why isn't my symlink working?"]]
+Although you can use symlinks underneath your web\_scripts directory to
+point to other files to point to other files underneath your
+web\_scripts directory, you cannot use symlinks to point to executables
+outside of your web\_scripts directory (for example, you cannot point at
+executables in another Athena locker). scripts.mit.edu expects all of
+your web scripts to reside underneath your web\_scripts directory.
