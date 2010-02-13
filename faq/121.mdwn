@@ -1,0 +1,25 @@
+[[!meta title="How can I move a WordPress install?"]]
+WordPress saves the URL to use to access it in its configuration. If you
+move the directory you installed WordPress into or start using a [short
+URL](http://scripts.mit.edu/faq/14/do-cnames-work-with-the-script-service "like MY_GROUP.mit.edu")
+without first updating that URL, you may accidentally lock yourself out
+of the WordPress admin interface.
+
+To update the stored URL:
+
+1.  Wait until you’re ready to start using the new URL. In particular,
+    if you’re requesting a new hostname (like MY\_GROUP.mit.edu), wait
+    until the Scripts team contacts you to tell you that the new
+    hostname is working, and confirm that http://MY\_GROUP.mit.edu/
+    works. If you don’t wait, you will lock yourself out of the
+    WordPress admin interface.
+2.  Log into the WordPress admin interface using the old URL
+3.  Select the “Settings” link in the sidebar
+4.  Make “Blog address (URL)” blank and change “WordPress address (URL)”
+    to the address you want to be able to access it at.
+5.  You may get a “404 Not Found” message when you save the changes.
+    This is likely not a problem, and you should see if finishing the
+    move fixes it.
+6.  Once you move the PHP scripts in AFS or your new hostname gets
+    activated, you should be able to use the new URL
+
