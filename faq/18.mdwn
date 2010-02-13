@@ -1,0 +1,2 @@
+[[!meta title="Do my scripts need to be world-readable?"]]
+No. By default, your scripts are not readable to other users.
