@@ -1,0 +1,7 @@
+[[!meta title="How do I access the Authorization headers from a FastCGI?"]]
+Apache by default does not pass the Authorization header through to
+FastCGI scripts. If you want access to it (perhaps for use with Ruby on
+Rails), you need to add the following to a .htaccess file:
+
+    RewriteCond %{HTTP:Authorization} ^(.+)
+    RewriteRule ^(.*)$ $1 [E=HTTP_AUTHORIZATION:%1,PT]
