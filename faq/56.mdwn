@@ -1,0 +1,51 @@
+[[!meta title="Why isn't the 'add' command working?"]]
+There are two cases where you can run into this problem: either on
+Athena, while signing up, or on scripts.mit.edu itself.
+
+#### The command “add scripts” gives an error
+
+The **add** command is a standard Athena command to manage lockers. If
+you’re having trouble getting **add scripts** to work, check the
+following:
+
+-   Make sure you’re on a standard Athena Linux or Athena Solaris
+    computer connected to the network, either a workstation (e.g., in
+    the clusters), or a dialup such as
+    [athena.dialup.mit.edu](http://athena.dialup.mit.edu).
+-   If the prompt does not start with **athena%** or **athena\$**, try
+    opening a new terminal with the “Prompt” button, or try a different
+    workstation.
+-   If you get the error “add: Command not found,” you’re probably
+    missing the login settings files (“dotfiles”), which set up the add
+    command. Try the following:
+    1.  If you’re on a cluster machine (not a dialup), log out, click
+        “Login Options”, select “Ignore customizations”, and then log
+        in. This should attempt to avoid customized dotfiles.\
+    2.  If this still doesn’t work, you’re probably missing your
+        dotfiles entirely. Check that the files .login and .cshrc are
+        present in your home directory. (These are hidden files, so you
+        will have to use **ls -a** to list them.) If they aren’t there,
+        copy them (as well as any other missing dotfiles) with the
+        command
+
+            cp /usr/prototype_user/.* ~
+
+        Then log out and back in.
+
+If you’ve determined you’re missing your dotfiles and you’re having
+trouble restoring them, you can ask
+[IS&T](http://web.mit.edu/consult/www/) for help.
+
+#### Adding a locker from a script doesn’t work
+
+scripts.mit.edu doesn’t support the add command, because it’s difficult
+to make it work correctly outside of the shell. As a replacement,
+however, the /mit directory is *automounted*, so using a file in
+/mit/*lockername* implicitly attaches the locker. This way, you can run
+software in lockers by giving its full path, e.g. /mit/moira/bin/blanche
+for the blanche client.
+
+(The full path of locker software is generally
+/mit/*locker*/bin/*program* or /mit/*locker*/arch/@sys/bin/*program*. If
+you’re having trouble, add the locker on Athena and run **type
+*program*** or **which *program***.
