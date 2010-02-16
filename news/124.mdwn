@@ -1,0 +1,6 @@
+[[!meta title="New Hostname Management Inteface"]]
+The scripts.mit.edu team is pleased to announce [a new online interface
+for managing your scripts.mit.edu
+hostnames](http://pony.scripts.mit.edu) (lovingly called Pony). You can
+now easily request short URLs to use with your scripts.mit.edu sites and
+reconfigure your existing hostnames.
