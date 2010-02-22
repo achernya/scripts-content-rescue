@@ -1,0 +1,20 @@
+[[!meta title="Certificate Authentication in Safari"]]
+If you’ve tried to use our [recommended configuration](/faq/15) for
+authenticating users using MIT certificates, you’ve probably discovered
+that Safari users are not offered the opportunity to select a
+certificate. This is due to a bug in Safari’s SSL implementation where
+it will never present a certificate unless the server requires that it
+present one (we do not require that a certificate be presented, so that
+we can show a page saying “you need certificates”).
+
+Starting today, we’ve added some additional code that will force Safari
+to show the certificate selection dialog. If you are using the
+recommended configuration for certificate authentication, this will take
+effect for your site automatically. (Specifically, what we now do is
+that force an SSL renegotation if we find the Safari browser.)
+
+If you are using any other configuration than our recommended
+configuration, the behavior should not change.
+
+(You can see the [technical details of this
+change](/trac/changeset/1483) in our source browser.)
