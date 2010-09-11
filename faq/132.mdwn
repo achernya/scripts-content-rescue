@@ -1,0 +1,19 @@
+[[!meta title="Can I add a vhost before I point my domain at scripts?"]]
+The easiest approach is simply to [point the domain at
+scripts](http://scripts.mit.edu/faq/14/do-cnames-work-with-the-script-service)
+*before* you set it up, but if you wish to migrate a currently active
+website, you may want to have the vhost set up on scripts before
+changing the DNS to avoid interruption.
+
+If you want to do this, scripts will require that you create a file in
+the root directory of your existing website. For instance, if you are
+trying to add the domain “example.com” and it asks for the file
+“scripts\_870shdfs8.html”, you should make sure that
+http://example.com/scripts\_870shdfs8.html exists (though its content is
+irrelevant).
+
+If you want to use a wildcard (e.g. \*.example.com), you should make
+sure that *all* subdomains matching the wildcard point to the same
+place, and contain the file listed – for instance, for \*.example.com,
+a.example.com, b.example.com and c.example.com should all contain the
+file.
