@@ -1,0 +1,15 @@
+[[!meta title="I'm seeing: "It is not safe to rely on the system's timezone settings.""]]
+If you are getting the PHP warning:
+
+> **Warning**: date() [function.date]: It is not safe to rely on the
+> system’s timezone settings. You are \\\*required\\\* to use the
+> date.timezone setting or the date\_default\_timezone\_set() function.
+> In case you used any of those methods and you are still getting this
+> warning, you most likely misspelled the timezone identifier. We
+> selected ‘America/New\_York’ for ‘EDT/-4.0/DST’ instead in
+> /afs/athena.mit.edu/… on line 0
+
+You can resolve it by editing or creating a php.ini file in the same
+directory as the PHP script emitting this error and adding the line:
+
+    date.timezone = America/New_York
