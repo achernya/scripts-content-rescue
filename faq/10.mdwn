@@ -1,0 +1,59 @@
+[[!meta title="How can I backup and restore MySQL data?"]]
+You can back up your SQL data in two ways: via the command-line, or
+using the phpMyAdmin graphical user interface. Note that phpMyAdmin
+**cannot import large databases** (to get around this limitation, you
+can import and export databases using the command-line).
+
+* * * * *
+
+#### Backing up and restoring with the command-line client
+
+First, [perform a kerberised ssh to scripts.mit.edu after sshing to an
+Athena workstation](/faq/41/) (lockername@scripts if your website is in
+a locker). Then, to export the database:
+
+**mysqldump** *user+database* **\>** *filename.sql*
+
+To import a database dump, make sure the database exists (you may need
+to create it from [sql.mit.edu](http://sql.mit.edu/)) and run the
+command
+
+**mysql** *user+database* **\<** *filename.sql*
+
+* * * * *
+
+#### Backing up and restoring with phpMyAdmin
+
+You can use phpMyAdmin to backup and restore data. However, **importing
+will not work for large databases**.
+
+To backup your data using phpMyAdmin:
+
+1.  Log in to [phpMyAdmin](http://scripts.mit.edu/~sql/phpMyAdmin/) with
+    your [SQL password](/faq/59/accessing-mysql-in-athena-with-mycnf).
+2.  Select the database or table you want to export (if you want to
+    export just one database or table), and click the link at the
+    top-right labeled **Export**.
+3.  If a list of databases or tables displays at the top, select the
+    databases or tables you want to export: either use “Select All”, or
+    Ctrl-click / Cmd-click to select multiple items. (There is no need
+    to backup `information_schema`, since this is a read-only system
+    table.)
+4.  Ensure the export type is “SQL”. Check the “Save as file” box near
+    the bottom, and select “gzipped” if you want to compress your
+    exported data.
+5.  Click **Go** and save the downloaded file somewhere safe.
+
+To restore your data using phpMyAdmin:
+
+1.  Make sure the database that you’re restoring into exists by creating
+    it on the [sql.mit.edu web interface](http://sql.mit.edu/) (not
+    phpMyAdmin) if necessary.
+2.  Log in to [phpMyAdmin](http://scripts.mit.edu/~sql/phpMyAdmin/) with
+    your [SQL password](/faq/59/accessing-mysql-in-athena-with-mycnf).
+3.  If you want to import a single database, choose that database from
+    the left menu.
+4.  Click **Import** at the top.
+5.  Select the backup you downloaded previously (or any SQL-formatted
+    database dump) and click **Go**.
+
