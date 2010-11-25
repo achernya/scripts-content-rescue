@@ -1,0 +1,64 @@
+[[!meta title="Can I set up my scripts site to forward/redirect to another website?"]]
+Yes. If you would like to redirect all web requests for a given URL on
+scripts.mit.edu to another website (such as web.mit.edu), follow these
+instructions:
+
+**Note:** These directions are only appropriate for redirecting a URL on
+your scripts.mit.edu site to another URL that is **not** also on your
+scripts site. If you want to, for example, cause
+http://mylocker.scripts.mit.edu to take people to
+http://mylocker.scripts.mit.edu/wiki, please skip to the directions at
+the end of the page.
+
+​1. Create a directory for the redirect. In these examples, we will be
+redirecting http://mygroup.scripts.mit.edu/subpage/ to
+http://www.example.com/other/website/, so create the “subpage”
+directory:\
+ athena% **attach**mygroup\
+ athena% **mkdir /mit/**mygroup**/web\_scripts/**subpage
+
+​2. Create a text file named .htaccess within your the new directory,
+e.g.:\
+ athena% **cd /mit/**mygroup**/web\_scripts/**subpage\
+ athena% **emacs .htaccess**
+
+​3. Place two lines like the following in the .htaccess file:\
+ **RedirectPermanent /\~**mygroup**/**subpage**/**
+http://www.example.com/other/site/\
+ **RedirectPermanent /**subpage**/** http://www.example.com/other/site/\
+ This will send requests to either
+http://scripts.mit.edu/\~mygroup/subpage/ or
+http://mygroup.scripts.mit.edu/subpage/ to the right address. It will
+also redirect, e.g., http://mygroup.scripts.mit.edu/subpage/foo.html to
+http://www.example.com/other/site/subpage/foo.html.
+
+If you would like the redirect not to be cached by web browsers (e.g.,if
+you’re planning to change the redirect or set up a scripts site at this
+address), use “RedirectTemp” instead of “RedirectPermanent.”
+
+If you’re also planning to get a [mygroup.mit.edu-style
+address](/faq/14/) (a CNAME) to redirect to an outside site, then add at
+the bottom\
+ **RedirectPermanent /** http://www.example.com/other/site/
+
+If, instead of redirecting visitors to a different website, you wish to
+cause visitors who go to http://mylocker.scripts.mit.edu to be
+redirected to http://mylocker.scripts.mit.edu/wiki (or something
+similar), you can do the following:
+
+​1. Create a text file named .htaccess in your locker’s web\_scripts
+directory (or edit an existing one), e.g.:\
+ athena% **cd /mit/**mylocker**/web\_scripts**\
+ athena% **emacs .htaccess**
+
+​2. Place a line like the following near the top of the .htaccess file:\
+ **RedirectMatch \^/?\$** /wiki\
+ This will only send requests to http://mylocker.scripts.mit.edu to the
+initial address for the wiki. It will not interfere with the way the
+rest of your existing URLs work.
+
+More information about redirect rules is available in the [Apache
+documentation](http://httpd.apache.org/docs/2.0/mod/mod_alias.html#redirect).
+
+You can also [set up your web.mit.edu or www.mit.edu site to forward to
+scripts](http://scripts.mit.edu/faq/54).
