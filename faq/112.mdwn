@@ -1,0 +1,53 @@
+[[!meta title="How can I restrict my Trac instance to only certain users?"]]
+If you wish to restrict access to your Trac instance to only certain
+people with MIT certificates, you may do so by editing the `.htaccess`
+file in the directory you installed Trac into. **Note: There is also a
+`.htaccess` file in the `tracdata` subdirectory, and that file should
+*not* be changed.**
+
+Initially, when you've used the Trac autoinstaller, the .htaccess file
+will look similar this:
+
+    AuthType SSLCert
+    AuthSSLCertAuthoritative off
+    AuthSSLCertVar SSL_CLIENT_S_DN_Email
+    AuthSSLCertStripSuffix @MIT.EDU
+    Require valid-user
+    AuthOptional on
+
+    RewriteEngine on
+
+    RewriteCond %{HTTPS} =on
+    RewriteRule ^logout http://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+
+    RewriteCond %{REQUEST_URI} !^/~yourlocker/trac-path/trac.fcgi
+    RewriteRule ^(.*)$ /~yourlocker/trac-path/trac.fcgi/$1 [L]
+
+    <Files login>
+    AuthOptional off
+    ErrorDocument 401 /__scripts/needcerts
+    </Files>
+
+You will want to change it to be similar to the following (changes are
+highlighted in red):
+
+    AuthType SSLCert
+    #AuthSSLCertAuthoritative off
+    AuthSSLCertVar SSL_CLIENT_S_DN_Email
+    AuthSSLCertStripSuffix @MIT.EDU
+    Require user moe larry curly
+    #AuthOptional on
+    ErrorDocument 401 /__scripts/needcerts
+
+    RewriteEngine on
+
+    RewriteCond %{HTTPS} =on
+    RewriteRule ^logout http://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+
+    RewriteCond %{REQUEST_URI} !^/~yourlocker/tracpath/trac.fcgi
+    RewriteRule ^(.*)$ /~yourlocker/trac-path/trac.fcgi/$1 [L]
+
+    <Files login>
+    AuthOptional off
+    ErrorDocument 401 /__scripts/needcerts
+    </Files>
