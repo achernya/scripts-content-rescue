@@ -1,0 +1,27 @@
+[[!meta title="How do I enable file uploads to my MediaWiki?"]]
+To enable uploads, edit the LocalSettings.php file in your MediaWiki
+install directory, and change the line reading
+`$wgEnableUploads = false;` to `$wgEnableUploads = true;`.
+
+MediaWiki by default allows uploads of images with the following
+extensions: png, gif, jpg, and jpeg. To upload more file types, you will
+also need to add lines such as
+
+    $wgFileExtensions[] = 'doc';
+    $wgFileExtensions[] = 'pdf';
+
+for each extension (.doc and .pdf in this example) you would like to
+allow your site to upload. You can add these lines anywhere after the
+line starting with **require\_once** and before the **?\>** at the end
+of the file.
+
+Certain file types, such as .zip, cannot be properly uploaded with the
+default file-type detection system. If you have problems uploading
+certain file types, you may need to use an additional file-type
+detector, named “file”, with this command:
+
+    $wgMimeDetectorCommand = 'file -bi';
+
+If you run into trouble, please check the [MediaWiki web
+site](http://www.mediawiki.org/) or contact
+[scripts@mit.edu](http://scripts.mit.edu/scripts@mit.edu).
