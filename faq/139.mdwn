@@ -1,0 +1,20 @@
+[[!meta title="Can I make changes to autoinstalled code and still receive security updates?"]]
+The scripts.mit.edu project provides [autoinstallers](/start/) for many
+common web applications. As with any other application you run on the
+scripts.mit.edu platform, you can freely make changes.
+
+However, changes can present a potential issue for our [security
+updates](/faq/44).\
+ Sometimes, our updater can merge changes you make with the changes
+needed to update to the next version. However, sometimes your changes
+will conflict with changes in the new version. When that happens,
+sometimes the scripts.mit.edu team will merge the changes by hand, but
+in some cases you may need to do the upgrade yourself.
+
+It is also possible that changes might be subtly incompatible, breaking
+your site. While we do some basic testing on updates, we do not
+guarantee success.
+
+If you are particularly concerned about these issues, you should either
+[opt-out of updates](/faq/44) or not make changes to autoinstalled
+application code.
