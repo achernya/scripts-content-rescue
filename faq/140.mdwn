@@ -1,0 +1,15 @@
+[[!meta title="How can I set a custom error page on Scripts?"]]
+If you want to make Scripts use a customized error page for a 404 (File
+Not Found) error, you need to place the following lines in your
+**.htaccess** file:
+
+**\
+ ErrorDocument 404 /\~lockername/404.html\
+**
+
+Remember to replace **lockername** with the name of your locker, and
+**404.html** with the location of the customized error page.
+
+If you have additional error pages, create an additional line for each
+error code. Typical error codes include 401 (Unauthorized) and 403
+(Forbidden).
