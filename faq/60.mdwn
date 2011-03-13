@@ -1,0 +1,64 @@
+[[!meta title="How do I enable FastCGI?"]]
+### CGI vs FastCGI
+
+Normal CGI scripts are initialized, run, and destroyed for every single
+browser request. The advantage of this model is that it is very simple,
+and thus robust.
+
+If performance or latency becomes an issue, you can enable FastCGI.
+FastCGI is a web server module that speeds up your applications by
+keeping one interpreter running for multiple requests, instead of
+launching a separate interpreter for each request made while loading
+your page.
+
+### When FastCGI can help
+
+This can lead to improvements in latency (responsiveness), for example
+if:
+
+-   The language you are using takes a long time to start an
+    interpreter, or to load libraries you are importing
+-   You have a script which has significant repetitive launching
+    overhead
+-   Your scripts make the same, very large, database requests which
+    (while cached by MySQL) still have to be read from memory and
+    possibly cross an internal network
+-   You are using a web framework like CherryPy, Turbogears, Pylons, or
+    Ruby on Rails which prefers to run like a daemon
+
+### Caveats
+
+There are some complications however:
+
+-   The script in not guaranteed to die unless it kills itself
+-   If you update your fcgi script, the old process (using the old
+    script) may still be running with outdated code
+-   The Scripts service automatically load-balances scripts across
+    servers, just like regular CGI; new scripts may not even be launched
+    on the servers the old scripts are running on, and thus cannot “kill
+    all older versions of myself” since they may be on different servers
+
+The canonical way around these issues is to have the script watch the
+timestamps of the files it has loaded, and kill itself if a modification
+timestamp changes. If you are using a framework such as CherryPy, this
+is already handled for you.
+
+(Minor note: This method lends itself to race conditions on very short
+timescales during an update. It is also expensive if you are watching
+many files. Other solutions include updating a single “watch me” file
+with a version or hash after every update, or using transactional
+semantics. This is almost never an issue however.)
+
+### Enabling FastCGI
+
+FastCGI is enabled by default for files with the **.fcgi** extension. To
+enable FastCGI for another extension, such as .rb, add the following
+lines to a plain text file named **.htaccess** in the top directory of
+your website:
+
+**\<Files \*.rb\>\
+   SetHandler fcgid-script\
+ \</Files\>**
+
+To enable FastCGI for another languages, change **rb** to your
+language’s extension (e.g., **php**, **pl**, etc.)
