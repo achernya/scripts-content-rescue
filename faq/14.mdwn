@@ -1,0 +1,36 @@
+[[!meta title="Can my group obtain a shorter URL?"]]
+If you have a reasonable reason for wanting a short URL (in specific
+technical jargon, a DNS CNAME pointing to the script server and a
+corresponding virtual host configuration on the server), you can request
+one using our hostname management system. Note that this step is
+absolutely not required to use scripts.mit.edu; the default
+LOCKER.scripts.mit.edu URL is usually sufficient.
+
+There are several types of hostname you can request:
+
+-   By default, you are assigned a LOCKER.scripts.mit.edu host name; you
+    can request arbitrary subdomains of this address (for example,
+    blog.LOCKER.scripts.mit.edu). These host names are activated
+    instantaneously, and do not require approval.
+
+-   If you own an external hostname (e.g. example.com), you can point it
+    at the Scripts server. Configure your hostname with your registrar
+    or DNS hosting as an A record for 18.181.0.46, then add your
+    hostname using the online interface as usual. Alternatively, you can
+    configure it as a CNAME for “scripts-vhosts.mit.edu.”, which is less
+    cryptic but interferes with using your hostname with mail\_scripts,
+    and also doesn’t work for top-level URLs (i.e., you won’t be able to
+    do it for example.com, but you could for www.example.com).
+
+-   For high visibility websites, you can request a .mit.edu hostname.
+    You can use the stella command on Athena or [via the
+    web](https://scripts-cert.mit.edu/~geofft/stella.php) to check if
+    the hostname you would like is available. You can also transfer
+    hostnames that you or your group owns. These host names must be
+    manually approved, and we recommend they be requested sparingly.
+
+If our [hostname management system](http://pony.scripts.mit.edu/)
+doesn’t work for some reason, you can also request a hostname by
+e-mailing scripts@mit.edu. Please include the name you would like, and
+the directory you would like the host to point to (e.g.,
+group.scripts.mit.edu or group.scripts.mit.edu/wiki/).
