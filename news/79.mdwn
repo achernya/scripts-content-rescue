@@ -1,0 +1,38 @@
+[[!meta title="New features on scripts.mit.edu"]]
+If you develop websites on scripts.mit.edu, we thought you might like to
+hear about some of the new little features we’ve quietly developed over
+the last year.
+
+-   You can now access your website from **yourname.scripts.mit.edu**
+    instead of http://scripts.mit.edu/\~yourname. The new URLs are
+    easier to type and more secure against cross-site scripting attacks.
+    On https://yourname.scripts.mit.edu, current web browsers
+    (supporting
+    [SNI](http://en.wikipedia.org/wiki/Server_Name_Indication)) will
+    receive a valid SSL certificate for \*.scripts.mit.edu. This also
+    works for group lockers.
+-   Setting up **certificate authentication** on scripts is easier than
+    ever. Just [add three lines to your .htaccess file](/faq/15), and
+    your visitors will be automatically redirected to port 444, which
+    accepts optional client certificates. Visitors without certificates
+    will be shown a friendly error page (which you can customize if you
+    want). You can restrict access by user, AFS group, or other standard
+    Apache authorization modules.
+-   A new Apache module supports **optional authentication**. If you
+    add\
+
+        AuthSSLCertAuthoritative off
+        AuthOptional on
+
+    to your .htaccess file, then the Apache authorization process will
+    be bypassed, so that your script can perform authorization itself,
+    and treat authenticated users differently from anonymous users
+    (which will have the `REMOTE_USER` variable unset).
+
+-   You can now install **Python modules** into your locker using
+    `easy_install --user` from the scripts servers, and they will be
+    automatically accessible to Python scripts in your locker.
+-   nelhage has made the **Jifty web framework** for Perl available in
+    the [jifty locker](http://jifty.scripts.mit.edu/) for
+    scripts.mit.edu as well as Athena and Debathena.
+
