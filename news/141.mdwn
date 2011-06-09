@@ -1,0 +1,16 @@
+[[!meta title="MS Office XML and OpenOffice.org file types added to white list"]]
+Our [whitelist of file types served directly to the web](/faq/50/) has
+for a long time included .doc, .xls, and .ppt. With the advent of new
+XML-based Microsoft Office formats, and with the popularity of
+LibreOffice and OpenOffice.org, there have been requests for
+whitelisting these additional file types. As of yesterday, the new
+Office XML filetypes — .docx, .xlsx, .pptx, etc. — as well as ODF file
+types — .odt, .ods, .odp, etc. — will also be served directly to the
+web.
+
+In addition to files you place in your locker, this also affects files
+uploaded to your website via the standard upload feature of apps such as
+MediaWiki and WordPress.
+
+The full list of whitelisted extensions is posted [in our
+FAQ](/faq/50/).
