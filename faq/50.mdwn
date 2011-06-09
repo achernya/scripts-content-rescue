@@ -1,0 +1,84 @@
+[[!meta title="What file extensions are served directly to the web using my scripts.mit.edu account?"]]
+When a file with one of the following extensions 1) is underneath your
+web\_scripts directory and 2) is not protected by a .htaccess file, it
+will be served directly to the web using your scripts.mit.edu account
+(you may want to read [this description](/faq/48/) of what files your
+account can access). In other words, you do not need to make files with
+the following extensions world-readable in order for them to be served
+directly to the web:
+
+    html
+    css
+    gif
+    jpg
+    png
+    htm
+    jpeg
+    js
+    ico
+    xml
+    xsl
+    tiff
+    tif
+    tgz
+    tar
+    jar
+    zip
+    pdf
+    ps
+    doc
+    xls
+    ppt
+    dot
+    docx
+    dotx
+    docm
+    dotm
+    xlt
+    xla
+    xlsx
+    xltx
+    xlsm
+    xltm
+    xlam
+    xlsb
+    pot
+    pps
+    ppa
+    pptx
+    potx
+    ppsx
+    ppam
+    pptm
+    potm
+    ppsm
+    swf
+    mp3
+    mov
+    wmv
+    mpg
+    mpeg
+    avi
+    il
+    xhtml
+    svg
+    xaml
+    xap
+    wav
+    mid
+    midi
+    xaml
+    xap
+    odc
+    odb
+    odf
+    odg
+    odi
+    odp
+    otp
+    ods
+    ots
+    odt
+    odm
+    ott
+    oth
