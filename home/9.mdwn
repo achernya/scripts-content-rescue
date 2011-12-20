@@ -1,0 +1,57 @@
+[[!meta title="Home Page"]]
+**scripts.mit.edu** is a hosting service for the MIT community that
+provides several popular web packages such as **MediaWiki** and
+**WordPress**, as well as **CGI script**, **MySQL**, **cron**, and
+**procmail** hosting. The service is **free to any Athena account
+holder** or group locker. It has over 3000 registered user accounts, and
+is used by a number of student organizations and academic groups at MIT.
+
+The scripts.mit.edu service is provided by the [Student Information
+Processing Board](http://sipb.mit.edu/) (SIPB), MIT’s volunteer student
+group dedicated to computing. It is neither run nor supported by
+[IS&T](http://ist.mit.edu/), and we make no guarantees about [uptime or
+support](/faq/136/what-level-of-support-does-scriptsmitedu-provide).
+
+We encourage scripts.mit.edu users to subscribe to our [announcement
+mailing
+list](https://mailman.mit.edu:444/mailman/listinfo/scripts-announce).
+
+### [Quick-Start Installers](http://scripts.mit.edu/start/)
+
+You can easily [install](http://scripts.mit.edu/start/) a new wiki,
+blog, photo gallery, forum, CMS, guestbook, or Trac by simply running
+two commands at an Athena prompt:
+
+> athena% **add scripts**\
+>  athena% **scripts**
+
+### [Web Script Service](http://scripts.mit.edu/web/)
+
+Athena users and group lockers can serve CGI scripts (Perl, PHP, Python,
+Ruby, Scheme, etc.) on the web using the [scripts.mit.edu hosting
+service](http://scripts.mit.edu/web/).
+
+### [MySQL Service](http://sql.mit.edu/)
+
+This service provides [MySQL](http://dev.mysql.com/doc) databases to
+Athena users and group lockers. SQL commands can be issued from any
+host, client, and/or script of your choice; simply connect to the [MySQL
+server at sql.mit.edu](http://sql.mit.edu/) using your MySQL username
+and password.
+
+### [Mail Script Service](http://scripts.mit.edu/mail/)
+
+You can use [procmail](http://www.google.com/search?q=procmail) scripts
+to [configure scripts to act on e-mail](http://scripts.mit.edu/mail/)
+sent to your @scripts.mit.edu account.
+
+### [Scheduled Jobs Service](http://scripts.mit.edu/cron/ "Cron")
+
+You can use [cron](http://www.google.com/search?q=cron) to
+[automatically run commands](http://scripts.mit.edu/cron/) at specified
+times on scripts.mit.edu.
+
+### [Development Blog](http://scripts.mit.edu/news/)
+
+You can read about new features and changes to scripts.mit.edu on our
+[development blog](http://scripts.mit.edu/news/).
