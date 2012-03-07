@@ -1,0 +1,75 @@
+[[!meta title="MIT SIPB Web Script Service"]]
+The web script service allows individuals and groups to put CGI scripts
+(Perl, PHP, Python, Ruby, Scheme, etc) on the web using nothing more
+than an [Athena](http://web.mit.edu/ist/topics/athena/) account.
+Although this service has been designed with reliability in mind, it
+should not be used to run critical applications that cannot tolerate
+downtime.
+
+Your scripts will automatically be accessible at URLs starting with
+http://lockername.**scripts**.mit.edu/.
+
+If, at some point, your group would like to make some-name.mit.edu point
+to your scripts.mit.edu website, you can request such a hostname using
+our [hostname management interface](http://scripts.mit.edu/faq/14).
+
+#### **To sign up for the service:**
+
+If you just want to get started with a pre-made application, consider
+trying our [Quick Start installers](../start/) instead. Otherwise, you
+can sign up for the service by logging into an Athena workstation and
+running:
+
+athena% add scripts\
+ athena% signup-web\
+
+The command will ask you whether you would like to sign up your own
+account, or a locker that you control.
+
+(If you are confused about how to run the above commands on Athena,
+e-mail scripts@mit.edu for assistance. You must have an [Athena
+account](http://web.mit.edu/olh/Register/) and understand the [MITnet
+rules of use](http://web.mit.edu/olh/Welcome/rules.html) in order to use
+the service. You should also understand that if you install software
+from the web in your account, you are responsible for keeping that
+software up-to-date so that it is secure.)
+
+This signup process will create a **web\_scripts** directory. You may
+now put scripts in this directory and have them served to the web. Your
+scripts’ filenames must end in one of the following file extensions:
+.pl, .php, .py, or .cgi
+
+Files whose name end with “.php” will be executed with the PHP
+interpreter. Otherwise, each file must be marked executable (chmod +x
+filename.py) and have a [shebang
+line](http://en.wikipedia.org/wiki/Shebang_%28Unix%29) corresponding to
+its interpreter. This should be the first line of the file. You can
+determine the path of an interpreter by [ssh-ing to the scripts
+server](/faq/41). You are most likely to want one of:
+
+-   \#!/usr/bin/perl
+-   \#!/usr/bin/python
+-   \#!/usr/bin/php-cgi
+
+Finally, add yourself to the [scripts-announce mailing
+list](https://mailman.mit.edu/mailman/listinfo/scripts-announce) if you
+would like to receive announcements of major service changes and
+outages. This list receives less than one e-mail per month on average.
+
+For more information, see our list of [Frequently Asked
+Questions](../faq/).
+
+#### Example Scripts
+
+Looking at some basic examples may help you if you are having trouble:\
+ Perl example: [see
+code](http://web.mit.edu/~jbarnold/web_scripts/demo/demo.pl.html) | [see
+output](http://jbarnold.scripts.mit.edu/demo/demo.pl)\
+ PHP example: [see
+code](http://web.mit.edu/~jbarnold/web_scripts/demo/demo.php.html) |
+[see output](http://jbarnold.scripts.mit.edu/demo/demo.php)\
+
+Python example: [see
+code](http://web.mit.edu/~jbarnold/web_scripts/demo/demo.py.html) | [see
+output](http://jbarnold.scripts.mit.edu/demo/demo.py)\
+
