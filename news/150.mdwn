@@ -1,0 +1,15 @@
+[[!meta title="scripts.mit.edu Fedora 17 transition"]]
+On Tuesday, June 26th, 2012, all of the
+[scripts.mit.edu](http://scripts.mit.edu/) servers will be upgraded from
+[Fedora 15](https://fedoraproject.org/wiki/Releases/15) to [Fedora
+17](https://fedoraproject.org/wiki/Releases/17), which was released on
+May 29. We strongly encourage you to [test your
+website](/upgrade/149#f17-testing) as soon as possible, and to contact
+us at [scripts@mit.edu](mailto:scripts@mit.edu) or come to our office in
+W20-557 if you experience any problems. The easiest way to test your
+site is to run the following commands at an Athena workstation and then
+visit your website in the browser that opens, but [see this
+page](/upgrade/149) for more details and important information: \
+\
+` athena% add scripts`\
+ `athena% firefox-test `
