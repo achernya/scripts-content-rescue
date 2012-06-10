@@ -1,0 +1,105 @@
+[[!meta title="scripts.mit.edu Fedora 17 transition"]]
+Keeping the scripts.mit.edu servers secure is one of the most important
+things that the team works on. This includes not only careful design and
+review of the custom software that we run, but keeping up to date with
+security patches for Fedora, which is the distribution of Linux that we
+run. Fedora’s security support for Fedora 15 will be ending soon, so we
+will be upgrading to Fedora 17 to receive official security support for
+approximately another year.
+
+The actual transition is scheduled for the Fedora 15 end-of-life, which
+is on June 26th.
+
+### Will I need to do anything to my website?
+
+We expect that for the vast majority of our users, the upgrade will be
+very smooth, your applications will work with no changes, and you won’t
+have to do anything. However, we strongly encourage you to test your
+website as soon as possible. Also, check the list of known issues to see
+if you are likely to experience any problems we’re already aware of. In
+particular, the system installations of Trac, Rails and TurboGears have
+had upstream upgrades that are somewhat backwards incompatible.
+
+### Will there be a service outage?
+
+We do not expect there to be any service outage. Our plan is to
+simultaneously add the Fedora 17 servers to the load-balancing pool and
+then remove the Fedora 15 servers. If your website and scripts work with
+our Fedora 17 testing server, they should work and be available to your
+visitors continuously throughout this process.
+
+### How do I test my website?
+
+There are several options available to you.
+
+**Note: If you are running an application that asks you to upgrade it
+when you use our testing server, do not perform the upgrade until the
+official roll-over.** If you do, your site will most likely work on the
+testing server, but no longer work on the production Fedora 15 servers.
+If you do perform an upgrade, you will most likely have to restore a
+backup of your database and/or application. If you wish to test your
+application sooner, you may wish to make a new copy of it that uses a
+different database.
+
+#### Athena workstation
+
+On any Athena workstation, you can log in and run these commands (make
+sure you do not have a web browser open first):
+
+    athena% add scripts
+    athena% firefox-test
+
+This will start Firefox for you with special configuration that ensures
+that any website you visit that’s hosted on scripts will be retrieved
+from our test server. You can then try using all the features of your
+website just as you ordinarily would. Note that this will be using your
+real website; it is not a separate copy of your site.
+
+This configuration will only be used while you have that copy of Firefox
+open. If you close it and run Firefox normally, you will no longer be
+using our test server.
+
+#### SIPB Office
+
+If you visit the SIPB office (W20-557), there are a few specially
+labelled workstations there which always use the scripts testing server.
+You do not need to do any special configuration to test your site on
+these machines. Feel free to come by SIPB any time we’re open (the
+office doesn’t have fixed hours, but is open most afternoons and
+evenings; feel free to call 617-253-7788 to check if we’re open before
+coming over) and test your site on these machines.
+
+#### Advanced
+
+If you use Linux, or a similar operating system, and are comfortable
+with system administration tasks, you can temporarily configure your
+system to use our testing server by adding a line to your /etc/hosts
+file that maps the hostname your website uses to the IP address
+18.181.0.229. Note that your website might use any of these hostnames:
+
+    scripts.mit.edu, scripts-cert.mit.edu, yourLockerName.scripts.mit.edu
+
+or something like customname.mit.edu. Be sure that the line you add to
+your /etc/hosts uses the correct name, and be sure that you remove that
+line when you are done testing. If you are on a Windows system, the
+analogous file is
+
+    C:\Windows\System32\drivers\etc\hosts
+
+### May I ssh into the test server?
+
+Yes, anyone with a scripts account may ssh to `scripts-test.mit.edu`,
+just as you ordinarily would ssh to scripts.mit.edu, if you would like
+to use a shell.
+
+### What are the known issues at this time?
+
+Please check [our wiki page](http://scripts.mit.edu/wiki/Fedora_17) .
+
+### How can I stay up to date on news about Scripts?
+
+News about scripts.mit.edu is posted to our blog periodically. Important
+announcements are e-mailed to the [scripts-announce mailing
+list](http://mailman.mit.edu/mailman/listinfo/scripts-announce). If
+you’re not already signed up for the list, please take a moment to do so
+by clicking the link above.
