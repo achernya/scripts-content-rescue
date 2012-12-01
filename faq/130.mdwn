@@ -1,0 +1,13 @@
+[[!meta title="Can I grant permissions to users based on moira lists?"]]
+You can automatically add users to [MediaWiki
+groups](http://www.mediawiki.org/wiki/Manual:User_rights) based on
+membership in AFS groups. Once you [have the MITAuth
+extension](http://scripts.mit.edu/faq/129/how-do-i-authenticate-users-with-certificates)
+deployed, you are able to use the groups as a criterion called
+APCOND\_IN\_MOIRA\_GROUP in MediaWiki standard [autopromotion
+mechanism](https://www.mediawiki.org/wiki/Manual:$wgAutopromote) . For
+example, in order to make all members of AFS group “test” administrators
+(i.e. put them into MediaWiki group “sysop”), you need the following
+LocalSettings.php line:
+
+    $wgAutopromote['sysop'] = array( APCOND_IN_MOIRA_GROUP, 'test' );
