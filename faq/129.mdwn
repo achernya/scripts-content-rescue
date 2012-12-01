@@ -1,0 +1,31 @@
+[[!meta title="How do I authenticate users with certificates?"]]
+In order to enable authentication through certificates, you need to
+install a special MediaWiki extension called
+[MITAuth](https://github.com/sipb/MediaWikiMITAuth).
+
+​1) [SSH into the scripts
+server](http://scripts.mit.edu/faq/41/can-i-ssh-to-scripts.mit.edu-to-test-my-scripts)
+
+​2) Go to the root directory of your MediaWiki installation
+
+​3) Check out the extension into the extensions/MITAuth directory:
+
+    git clone https://github.com/sipb/MediaWikiMITAuth extensions/MITAuth
+
+​4) Set up the database table for the extension:
+
+    php maintenance/sql.php extensions/MITAuth/mitauth.sql
+
+​5) Edit your LocalSettings.php file and enable the extension by adding
+the following line:
+
+    require_once( "$IP/extensions/MITAuth/MITAuth.php" );
+
+​6) If you want non-MIT users to be able to sign up and be able log into
+MediaWiki:
+
+    $wgMITAuthenticationMode = 'combined';
+
+Now your wiki should be able to use MIT certificates for authentication.
+If you have an existing account, you may link it to the MIT identity
+using the link in the preferences.
