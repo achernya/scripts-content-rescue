@@ -1,0 +1,52 @@
+[[!meta title="How do I redirect visitors from my web.mit.edu or www.mit.edu URL to my scripts.mit.edu website?"]]
+URLs on web.mit.edu (e.g., http://web.mit.edu/jbarnold/ or
+http://web.mit.edu/\~jbarnold/, the tilde is optional) point to the top
+level of your Athena locker (/mit/jbarnold in this case).
+
+URLs on www.mit.edu (e.g., http://www.mit.edu/\~jbarnold/, the tilde is
+required) point to the www subdirectory of your Athena locker
+(/mit/jbarnold/www).
+
+If you want visitors to your web.mit.edu or www.mit.edu URL to see your
+scripts site instead, first, cd to the directory corresponding to your
+web.mit.edu or www.mit.edu URL (for example, my directory
+/mit/jbarnold/www corresponds to the URL http://www.mit.edu/\~jbarnold):
+
+athena% **attach jbarnold**\
+ athena% **cd /mit/jbarnold/www**
+
+Next, create a **.htaccess.mit** file in this directory and add rewrite
+rules to it. For example, if I wanted to redirect both
+**http://www.mit.edu/\~jbarnold/** and
+**http://web.mit.edu/jbarnold/www** to
+**http://jbarnold.scripts.mit.edu**, I would add the following two
+lines:
+
+**Redirect 301 /\~jbarnold http://jbarnold.scripts.mit.edu**\
+ **Redirect 301 /jbarnold/www http://jbarnold.scripts.mit.edu**
+
+The first line handles redirecting http://www.mit.edu/\~jbarnold to
+http://jbarnold.scripts.mit.edu and the second line (which is completely
+independent) handles redirecting http://web.mit.edu/\~jbarnold to
+http://jbarnold.scripts.mit.edu.
+
+Finally, if you placed this in your locker, rather in the www
+subdirectory, you may need to give the web.mit.edu server access to your
+locker, so it can read your .htaccess.mit file (warning: this will also
+cause all the files in your locker to be readable over web.mit.edu):
+
+athena% **fs sa . system:htaccess.mit read**
+
+You should check that the redirect is working, and that people cannot
+read your personal files via web.mit.edu (e.g.,
+http://web.mit.edu/jbarnold/).
+
+You can find more information about .htaccess files and Apache Redirect
+rules via Google. IS&T has a [website about .htaccess.mit
+files](http://kb.mit.edu/confluence/display/istcontrib/Web+Publishing+-+Access+privileges+on+web.mit.edu),
+but it focuses on restricting content, not redirects. If you have
+questions about how you should set up your .htaccess.mit file, feel free
+to contact us by e-mailing scripts@mit.edu.
+
+You can also [redirect visitors from your scripts.mit.edu site to
+another website](http://scripts.mit.edu/faq/63).
