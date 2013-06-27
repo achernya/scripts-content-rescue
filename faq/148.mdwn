@@ -1,0 +1,32 @@
+[[!meta title="How can I install Ruby gems in my locker?"]]
+First, note that many Ruby gems are already installed on
+scripts.mit.edu, and we’re generally pretty willing to install
+generally-useful software globally; email us at scripts@mit.edu to ask.
+This has the advantage that you won’t have to worry about keeping the
+packages up to date; in some cases, using out-of-date modules could lead
+to security vulnerabilities in your site. Furthermore, a frequent
+practice in the Ruby community is to have sets of Ruby packages
+associated with deployments, in which case installing a gem in your
+locker might be too global.
+
+In order to install a Ruby gem to your locker, you will first need to
+create the directory to install into and give scripts.mit.edu permission
+to it. From an Athena prompt, do the following, where lockername is the
+name of your locker:
+
+    add consult
+    mkdir /mit/lockername/.gem
+    mkdir /mit/lockername/.bundle
+    mkdir /mit/lockername/bin
+    fsr sa /mit/lockername/.gem daemon.scripts write
+    fsr sa /mit/lockername/.bundle daemon.scripts write
+    fsr sa /mit/lockername/bin daemon.scripts write
+
+To tell a bundler configured app to use this local Gem store, run this
+command on a Scripts server, in the directory of your application:
+
+    bundle config path ~/.gem/ruby/1.9.1
+
+Then, to install a gem, SSH into Scripts and run:
+
+    gem install -l gemname
