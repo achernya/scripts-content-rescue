@@ -1,0 +1,6 @@
+[[!meta title="Does scripts.mit.edu support Ruby on Rails?"]]
+Yes! We now have an [autoinstaller](http://scripts.mit.edu/start/) for
+Ruby on Rails. Just run these commands on Athena to get started:
+
+`athena% add scripts`\
+ `athena% scripts-rails`
