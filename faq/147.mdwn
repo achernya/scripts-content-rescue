@@ -1,0 +1,7 @@
+[[!meta title="Why does my PEAR channel say it does "not have REST dependency information available""]]
+PEAR writes out `.txt` files which, for historical reasons, are not
+served by default from Scripts to the world. Run
+`fs sa PEAR_DIR/get system:anyuser read` and
+`athrun consult fsr sa PEAR_DIR/rest system:anyuser read`. See also [How
+do I make a file accessible to
+Apache](http://scripts.mit.edu/faq/48/how-do-i-mark-a-file-as-world-readable-to-the-script-server)
