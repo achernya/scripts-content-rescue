@@ -1,0 +1,41 @@
+[[!meta title="How can I install Python modules in my locker?"]]
+First, note that many Python modules are already installed on
+scripts.mit.edu, and we’re generally pretty willing to install
+generally-useful software globally; email us at
+[scripts@mit.edu](mailto:scripts@mit.edu) to ask. This has the advantage
+that you won’t have to worry about keeping the packages up to date; in
+some cases, using out-of-date modules could lead to security
+vulnerabilities in your site.
+
+Sometimes, however, you may want to install a specific Python module
+from [PyPI](http://pypi.python.org/) in your locker, say because you
+want to modify it or because you need a different version than what’s
+installed globally. This is pretty straight forward. First, you need to
+create the directory to install into and give scripts.mit.edu permission
+to it. From an Athena prompt, do the following, where lockername is the
+name of your locker:
+
+    % add consult
+    % mkdir -p /mit/lockername/.local/lib/python2.7/site-packages/
+    % fsr sa /mit/lockername/.local/lib/python2.7/site-packages/ \
+        daemon.scripts write
+
+Then, to install a package, [ssh into scripts.mit.edu as your
+locker](/faq/41/) and run
+
+    $ easy_install --user -Z packagename
+
+where packagename is the package you want to install. To upgrade
+something you already have installed, simply do:
+
+    $ easy_install --user -Z -U packagename
+
+These packages will be automatically available to Python scripts you run
+on scripts.mit.edu.
+
+Note that because the modules are tied to the minor version of Python
+they were built with, you will need to install the modules again if the
+system Python is upgraded. Be sure to add yourself to the
+[scripts-announce mailing
+list](http://mailman.mit.edu/mailman/listinfo/scripts-announce) so you
+will be notified about such transitions.
