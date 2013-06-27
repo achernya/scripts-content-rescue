@@ -1,0 +1,3 @@
+[[!meta title="Does scripts.mit.edu support Jifty?"]]
+You can install [Jifty](http://jifty.org/) apps on scripts using the
+[jifty locker](http://jifty.scripts.mit.edu/).
