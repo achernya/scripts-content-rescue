@@ -1,0 +1,40 @@
+[[!meta title="How can I avoid typing my password repeatedly when using git with the smart HTTP transport?"]]
+It is possible to use git with client certificates. This avoids needing
+to repeatedly type passwords when using git with the smart HTTP
+transport. First, you will need a git repository on scripts using the
+smart HTTP transport. Our autoinstaller (add scripts; scripts-git) will
+do this for you.
+
+### Extracting a certificate
+
+Next, you need to get a copy of your certificate. The easiest way to do
+this is probably to extract it from your browser.
+
+In Chromium, go to Preferences, search for “SSL”, pick “Manage
+Certificates” -\> “Your Certificates”, and then export your certificate.
+In Firefox, go to Preferences -\> Advanced -\> Encryption -\> View
+Certificates and then export your certificates.
+
+This will export your certificate as a PKCS\#12 file, which git doesn’t
+know how to handle. To convert it to something git *does* know how to
+handle, run `openssl pkcs12 -in cert.p12 -out cert.pem -nodes` (leave
+off the -nodes if you want your certificate to be encrypted, but be
+aware that you’ll need to type your password repeatedly in that case).
+
+### Telling git to use your cert
+
+To tell git about your certificate and the server, you’ll want to run
+
+      git config http.sslCert ~/path/to/ssl/cert.pem
+      git remote set-url origin https://locker.scripts.mit.edu/repo/repo.git
+      git remote set-url --push origin https://locker.scripts.mit.edu:444/repo/repo.git
+
+In particular, note the :444 in the latter URL, which causes
+scripts.mit.edu to use certificates.
+
+### Configuring the server to accept client auth
+
+You’ll also need to make sure that the server accepts you when
+identified by cert. Replace the indented lines between “\<Files
+\_git-auth.cgi\>” and “\</Files\>” in the .htaccess with one of the
+snippets from the [certificate authorization FAQ](/faq/15/).
