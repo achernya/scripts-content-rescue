@@ -1,0 +1,12 @@
+[[!meta title="What are scripts.mit.edu security updates?"]]
+If you use the scripts.mit.edu [automatic installers](/start), the
+software that you install will be set up so that it can receive
+automatic security updates from the scripts.mit.edu maintainers. If you
+plan to manage security updates for your software on your own, you
+should remove **system:scripts-security-upd** from the AFS ACLs of the
+directories of your automatically-installed software.
+
+(We will attempt to deal with security problems in the
+automatically-installed software, but we cannot realistically make
+meaningful guarantees about security, as we are
+[volunteer-run](/faq/136/).).
