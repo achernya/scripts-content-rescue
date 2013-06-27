@@ -1,0 +1,80 @@
+[[!meta title="Can I ssh to scripts.mit.edu to test my scripts?"]]
+Yes, although you must [sign up](/web) for at least one of the script
+services before you can connect. You can SSH to scripts.mit.edu from any
+computer supporting Kerberized SSH, which includes all Athena
+workstation or dialups. From Athena, you can use the following command:
+
+athena% **ssh -k scripts**
+
+If you want to log in to access a locker other than your own, you should
+log in with your locker name specified as the “username” for the login:
+
+athena% **ssh -k LOCKERNAME@scripts**
+
+(with LOCKERNAME replaced by the name of your locker)
+
+If you’re trying to log into scripts.mit.edu from home and you don’t
+have an SSH client on your computer, you can log into
+athena.dialup.mit.edu from
+[http://athena.dialup.mit.edu/](http://athena.dialup.mit.edu/), and log
+into scripts from there.
+
+You can also log in directly from most personal computers if you install
+a Kerberized SSH client. Other authentication mechanisms (such as direct
+password-based logins) are not supported for security reasons.
+
+Windows
+-------
+
+To connect to scripts.mit.edu from a Windows computer, install MIT
+SecureCRT **and Kerberos For Windows** from
+[http://web.mit.edu/software/win.html](http://web.mit.edu/software/win.html).
+
+Then, open MIT SecureCRT (from the Start menu). Click the “Quick
+Connect” button in the toolbar of the Sessions dialog box that appears
+(the second button from the left). Fill out the dialog that appears, as
+follows:
+
+Protocol: **SSH2**\
+ Hostname: **scripts.mit.edu**\
+ Port: **22**\
+ Firewall: **None**\
+ Username: [your Athena user name, or locker name]
+
+In the “Authentication” selectbox, scroll down and click on **GSSAPI**
+to highlight it. Make sure that the checkbox beside it is checked. Then,
+use the black arrows to the right of the box to move “GSSAPI” to the top
+of the list of Authentication methods.
+
+Then, click **Connect** to connect to scripts.mit.edu. If you are
+prompted for a username and password, please make sure you installed
+Kerberos for Windows and selected GSSAPI; you **cannot** log in to
+scripts.mit.edu with a username and password.
+
+From a Mac
+----------
+
+To connect to scripts.mit.edu from a Mac, download and install the MIT
+Kerberos Extras from
+[http://web.mit.edu/software/mac.html](http://web.mit.edu/software/mac.html).
+Then, open “Terminal” (in /Applications/Utilities/), and type:
+
+    kinit AthenaUsername
+    ssh -k LockerName@scripts.mit.edu
+
+The “-k” flag to ssh doesn’t exist for older MacOS X versions. For these
+versions and with Apple’s default ssh configuration, it is safe to not
+use this flag. If you have customized your ssh configuration, make sure
+you have “GSSAPIAuthentication yes” and “GSSAPIDelegateCredentials no”
+set for scripts.mit.edu.
+
+From Linux or other UNIX
+------------------------
+
+To connect from a Linux (or other UNIX) computer, install ssh and
+Kerberos, and set up Kerberos to use the ATHENA.MIT.EDU realm. Many
+Linux distributions provide packages that can do this for you. (If you
+are using Debian or Ubuntu, you may want to consider using
+[Debathena](http://debathena.mit.edu/), which will allow you to access
+many Athena services from your own computer.) Then, run the two Mac
+command-line commands listed above.
