@@ -1,0 +1,25 @@
+[[!meta title="How do I make IPython or manage.py shell work on scripts.mit.edu?"]]
+IPython, a nicer interactive Python shell that is, among other things,
+used by Django’s “manage.py shell” command, doesn’t work by default on
+scripts.mit.edu because it isn’t able to write to your \~/.ipython
+directory. Assuming you don’t already use IPython on Athena, you can
+create a \~/.ipython directory that will work on scripts as follows,
+replacing LOCKER with the name of your locker:
+
+-   Create a temporary \~/.ipython directory and make it accessible to
+    scripts via\
+     **mkdir /mit/**LOCKER**/.ipython**\
+     **fs sa /mit/**LOCKER**/.ipython daemon.scripts write**
+-   [Log in to scripts](https://scripts.mit.edu/faq/41/) (ssh
+    LOCKER@scripts) and run **ipython**. Because the .ipython directory
+    exists and is writable, ipython will be able to start, but will not
+    configure itself completely.
+-   Run the command
+    **\_\_IP.user\_setup('/mit/LOCKER/web\_scripts/.ipython','','install')**
+    to create a completely-configured default IPython setup in your
+    web\_scripts directory, which is writable from scripts.mit.edu.
+-   Log out of scripts. Remove the temporary \~/.ipython directory and
+    move the real one in place with\
+     **rm -r /mit/**LOCKER**/.ipython**\
+     **mv /mit/**LOCKER**/web\_scripts/.ipython /mit/**LOCKER
+
