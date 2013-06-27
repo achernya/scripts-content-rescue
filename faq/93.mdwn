@@ -1,0 +1,69 @@
+[[!meta title="Can I serve Subversion or Git repositories on scripts.mit.edu?"]]
+Yes, scripts supports virtual hosting for Subversion and Git
+repositories.
+
+git autoinstaller
+-----------------
+
+For git, we now provide an autoinstaller that will create a git
+repository and set it up for access using git’s smart HTTP transport,
+the git daemon (read-only), ssh (for locker administrators only), or
+standard filesystem access. To use the autoinstaller:
+
+    athena% add scripts
+    athena% scripts-git
+
+To configure write access to your repository, edit the .htaccess file in
+the \~/web\_scripts/repo folder that was setup. For example, you can
+[setup client
+auth](http://scripts.mit.edu/faq/146/how-can-i-avoid-typing-my-password-repeatedly-when-using-git-with-the-smart-http-transport)
+or you can restrict both read/write access by moving the access control
+lines outside of the \<Files\> block.
+
+Manual setup for Subversion or git
+----------------------------------
+
+If you want to use Subversion or set up git by hand, the process is more
+involved.
+
+Create a folder named \~/Scripts/git or \~/Scripts/svn:
+
+    athena% add scripts
+    athena% signup-minimal
+    athena% mkdir -p ~/Scripts/git
+    athena% mkdir -p ~/Scripts/svn
+
+Then either place your repository in that directory or create a symbolic
+link to your repository:
+
+    athena% ln -s ~/cool-repo.git ~/Scripts/git/
+
+Make sure that your repository is [readable by scripts](/faq/49),
+including all its subdirectories. For example, run:
+
+    athena% add consult
+    athena% fsr sa ~/Scripts/svn/repository/ daemon.scripts read
+
+If you are using git, you need to make sure that your repository is
+marked as exportable:
+
+    athena% touch ~/Scripts/git/cool-repo.git/git-daemon-export-ok
+
+Users can checkout the repository using:
+
+    git clone git://lockername.scripts.mit.edu/cool-repo.git
+    svn co svn://lockername.scripts.mit.edu/repo
+
+scripts currently doesn’t support pushing via the git protocol. The
+smart HTTP transport will work, though to use that you should read git’s
+documentation or use our autoinstaller (described above). Subversion
+does support unencrypted commits, which you can configure with the files
+in the `conf/` subdirectory of your repository. For this to work,
+scripts must also have write access to your repository, e.g.:
+
+    athena% athrun consult fsr sa ~/Scripts/svn/repository/ daemon.scripts write
+
+You will also need to enable password authentication by removing the \#
+from the start of the “password-db = passwd” line in
+`~/Scripts/svn/repository/conf/svnserve.conf`, and by adding passwords
+to `~/Scripts/svn/repository/conf/passwd`.
