@@ -1,0 +1,46 @@
+[[!meta title="Who is a locker administrator?"]]
+For technical reasons (part of the signup process involves giving the
+scripts server access to the web\_scripts directory) as well as
+practical ones (only authorized users should be able to act on behalf of
+the locker), we require that anyone who is setting up scripts services
+for a locker be a locker administrator.
+
+You can view the locker administrators with the command **fs la**
+(filesystem list access), e.g.:
+
+athena% **attach scripts**\
+ athena% **fs la /mit/scripts**\
+ Access list for /mit/scripts is\
+ Normal rights:\
+   system:scripts-root rlidwka\
+   system:anyuser rl
+
+Any entry with lowercase “a” at the end indicates a locker
+administrator. If the entry starts with “system:”, it refers to a Moira
+list; otherwise, it is a username. (The notable exceptions are
+system:anyuser, which refers to the public, and system:administrators,
+which includes only IS&T staff.) You can usually find out the members of
+a list with the command **blanche**, e.g., **blanche scripts-root** or
+using [WebMoira](https://groups.mit.edu/webmoira/). (Generally, you can
+also just e-mail the list.)
+
+In general, we recommend maintaining a list (which must be marked as an
+“AFS group”) that has admininstrative access, rather than individually
+granting access to users. A list owner can use **blanche** or WebMoira
+([https://groups.mit.edu/webmoira/list/listname](https://groups.mit.edu/webmoira/list/listname))
+to update the membership of lists.
+
+Any existing locker administrator can make you directly or a list
+containing you an administrator using the **fs sa** (filesystem set
+access) command:
+
+athena% **attach** *locker*\
+ athena% **fs sa /mit/**locker system:*listname* **all**
+
+(Or:\
+ athena% **fs sa /mit/**locker *username* **all**\
+ to grant access directly to a user.)
+
+If you are unable to contact any locker administrators, you should have
+someone appropriate (e.g., an officer of the student group), which may
+be you, e-mail [accounts@mit.edu](mailto:accounts@mit.edu).
