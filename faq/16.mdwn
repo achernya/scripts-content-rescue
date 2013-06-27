@@ -1,0 +1,19 @@
+[[!meta title="Is language "foo" or software package "bar" installed?"]]
+If you’d like to check whether the service has certain software
+installed, you can [ssh to scripts.mit.edu](/faq/41) from an Athena
+computer (you must first have signed up for one of the script services).
+
+The service supports essentially any programming language with a Linux
+implementation. If you want to use a language (or language version) that
+is not installed on the server, you can either contact us at
+scripts@mit.edu (we might be able to install what you want) or you can
+use a [shebang line](http://en.wikipedia.org/wiki/Shebang_%28Unix%29)
+(and provide your own binary in AFS). Since the server is running Linux,
+custom shebang lines must point to Linux-compatible executables.
+
+Here’s a shebang line demo:
+[code](http://web.mit.edu/~jbarnold/web_scripts/demo/demo.cgi.html) |
+[output](http://scripts.mit.edu/~jbarnold/demo/demo.cgi)
+
+We also have instructions for [installing Python libraries into your
+locker](/faq/126/) and a [more detailed FAQ about Java](/faq/151).
