@@ -1,0 +1,51 @@
+[[!meta title="MIT SIPB Mail Script Service"]]
+The mail script service uses
+[procmail](http://www.google.com/search?q=procmail) allows people to set
+up scripts to process e-mail using an
+[Athena](http://web.mit.edu/ist/topics/athena/) account. The mail script
+service is designed and maintained with less of a focus on reliability
+than the web script service, and should not be used to run applications
+that cannot tolerate downtime or occasional lost messages.
+
+Your mail scripts will automatically process mail sent to
+
+    YOUR_LOCKER_NAME@scripts.mit.edu or
+    YOUR_LOCKER_NAME+ANY_TAG@scripts.mit.edu or
+    ANY_TAG@YOUR_LOCKER_NAME.scripts.mit.edu
+
+If you have a non-MIT hostname served by scripts.mit.edu, your mail
+scripts will also process mail sent to
+
+    ANY_TAG@YOUR_DOMAIN.com
+
+You can access the tag on a message from your procmailrc file by parsing
+the X-Original-To header or as the \$1 variable.
+
+#### **To sign up for the service:**
+
+    athena% add scripts
+    athena% signup-mail
+
+(If you are confused about how to run the above commands on Athena,
+e-mail scripts@mit.edu for assistance. You must have an [Athena
+account](http://web.mit.edu/olh/Register/) and understand the [MITnet
+rules of use](http://web.mit.edu/olh/Welcome/rules.html) in order to use
+the service.)
+
+This signup process will create a **mail\_scripts** directory. Learn
+about [procmail](http://www.google.com/search?q=procmail) and modify
+your \~/mail\_scripts/procmailrc file to do whatever mail processing you
+desire. You may want to look at our sample files in
+[/mit/jbarnold/mail\_scripts](http://web.mit.edu/jbarnold/mail_scripts/).
+If your scripts need to write data, be sure to [give daemon.scripts the
+necessary
+access](http://scripts.mit.edu/faq/31/can-my-scripts-write-data-somewhere)
+in AFS.
+
+Finally, add yourself to the [scripts-announce mailing
+list](https://mailman.mit.edu/mailman/listinfo/scripts-announce) if you
+would like to receive announcements of major service changes and
+outages. This list receives less than one e-mail per month on average.
+
+For more information, see our list of [Frequently Asked
+Questions](../faq/).
