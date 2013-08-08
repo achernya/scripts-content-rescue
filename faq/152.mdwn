@@ -1,0 +1,16 @@
+[[!meta title="What language should I write my program in?"]]
+We recommend that [Python](http://python.org/) be used for new code,
+since it is a popular choice beyond MIT, much of the scripts.mit.edu
+team uses it, and any future maintainers of are relatively likely to
+know it (as MIT teaches many classes in Python). Popular Python
+frameworks include [Django](https://www.djangoproject.com/) and
+[flask](http://flask.pocoo.org/) with
+[sqlalchemy](http://www.sqlalchemy.org/).
+
+[PHP](http://www.php.net/) is probably the mostly commonly used language
+on scripts.mit.edu (WordPress and Mediawiki are written in it).
+
+A [wide variety of other
+languages](/faq/16/what-programming-languages-are-supported) also work,
+including [Ruby on
+Rails](/faq/53/does-scriptsmitedu-support-ruby-on-rails).
