@@ -1,0 +1,31 @@
+[[!meta title="How do I use ASP.Net Applications on Scripts?"]]
+We do not recommend using ASP.NET on scripts.mit.edu, as few if any
+scripts team members and scripts-hosted sites use it, making it likely
+to break during server changes, and making you less likely to receive
+help with issues. We have a [list of some recommended
+languages](/faq/152/what-language-should-i-write-my-program-in) that you
+can look over instead.
+
+That said, you may be able to get ASP.Net applications to work on
+Scripts with [Mono](http://www.mono-project.com/Main_Page).\
+ To try, add the following to your `.htaccess` file:
+
+    DirectoryIndex index.aspx
+    Options ExecCGI FollowSymLinks
+    SetEnv MONO_SHARED_DIR "/tmp/$USERNAME"
+    AddHandler fcgid-script .asax .ashx .asmx .aspx .axd .config .cs .dll .rem .soap
+
+    FCGIWrapper "/usr/bin/fastcgi-mono-server2 /applications=/test:/mit/pweaver/web_scripts/test" .asax
+    FCGIWrapper "/usr/bin/fastcgi-mono-server2 /applications=/test:/mit/pweaver/web_scripts/test" .ashx
+    FCGIWrapper "/usr/bin/fastcgi-mono-server2 /applications=/test:/mit/pweaver/web_scripts/test" .asmx
+    FCGIWrapper "/usr/bin/fastcgi-mono-server2 /applications=/test:/mit/pweaver/web_scripts/test" .aspx
+    FCGIWrapper "/usr/bin/fastcgi-mono-server2 /applications=/test:/mit/pweaver/web_scripts/test" .ascx
+    FCGIWrapper "/usr/bin/fastcgi-mono-server2 /applications=/test:/mit/pweaver/web_scripts/test" .axd
+    FCGIWrapper "/usr/bin/fastcgi-mono-server2 /applications=/test:/mit/pweaver/web_scripts/test" .config
+    FCGIWrapper "/usr/bin/fastcgi-mono-server2 /applications=/test:/mit/pweaver/web_scripts/test" .cs
+    FCGIWrapper "/usr/bin/fastcgi-mono-server2 /applications=/test:/mit/pweaver/web_scripts/test" .dll
+    FCGIWrapper "/usr/bin/fastcgi-mono-server2 /applications=/test:/mit/pweaver/web_scripts/test" .rem
+    FCGIWrapper "/usr/bin/fastcgi-mono-server2 /applications=/test:/mit/pweaver/web_scripts/test" .soap
+
+Replace /test:/mit/pweaver/web\_scripts/test with the application’s name
+and path of you application in your web\_scripts directory.
