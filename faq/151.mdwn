@@ -1,0 +1,35 @@
+[[!meta title="Is Java supported?"]]
+Short answer: **No**.
+
+There are two aspects to this question: general Java programs (short
+answer: we try) and Java Servlets (short answer: we’d like to).
+
+General Java programs
+---------------------
+
+We try to allow running Java programs on Scripts (such as cron jobs or
+CGI programs). However, keeping Java programs working requires ongoing
+work from the maintainers and the maintainers don’t use Java and
+therefore often won’t notice when it breaks. Consequently, we recommend
+[picking a better-supported
+language](/faq/152/what-language-should-i-write-my-program-in) (such as
+Python) if you have a choice.
+
+The issue with Java programs is that by default Java will attempt to
+allocate a large fraction of the system’s memory when it starts up. On
+most systems this is fine, because the operating system will not reserve
+the memory until Java writes to it, rather than merely allocates it.
+However, to ensure that Scripts remains responsive for our many users,
+we [limit](/faq/34/) how much memory a single process can allocate
+(unfortunately, Linux does not allow limiting how much memory a process
+can use, except by limiting the amount a process can allocate). We
+attempt to configure Java and these memory limits such that Java can run
+within them, but sometimes part of this configuration breaks without our
+noticing.
+
+Java Servlets
+-------------
+
+We do not currently support running Java Servlets. We would like to, and
+would welcome [SIPB prospectives](http://sipb.mit.edu/join/) interested
+in adding support, but expect that it would take significant work.
