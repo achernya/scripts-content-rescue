@@ -1,0 +1,81 @@
+[[!meta title="Can I authenticate people using MIT personal certificates?"]]
+Yes. There are two ways to do so: one will limit access to an entire
+directory (with an .htaccess file), and the second will provide the
+information in the [MIT personal certificate](http://ca.mit.edu) to your
+scripts.
+
+#### Limiting access with .htaccess
+
+Create a plain-text file called .htaccess in the directory to which you
+want to restrict access (for example, in the base directory of your wiki
+or other piece of software).
+
+-   To allow anybody with an MIT certificate to access your site (i.e.,
+    to make your site MIT-only), add the following lines to the
+    .htaccess file:
+    -   **`AuthType SSLCert Require valid-user ErrorDocument 401 /__scripts/needcerts`**
+
+-   To restrict access to a particular set of one or more usernames:
+    -   **`AuthType SSLCert Require user username1 username2 ErrorDocument 401 /__scripts/needcerts`**
+
+-   To restrict access to members of a Moira list (aka traditional or
+    blanche list) that is an *AFS* group:
+    -   `AuthType SSLCert Require afsgroup system:group1 system:group2 ErrorDocument 401 /__scripts/needcerts`
+
+-   If you want to allow access to members of *either* an existing list
+    or a list of usernames, you’ll need to [create a new
+    list](http://wserv.mit.edu/lc) containing the existing list and any
+    additional usernames.
+
+(The **ErrorDocument 401 /\_\_scripts/needcerts** line ensures that
+users are redirected to an HTTPS connection on port 444, which is
+configured to accept certificates. If the user has no certificates, they
+will be presented with a default error page; to use a custom error page,
+you can instead use **ErrorDocument 401
+/\_\_scripts/needcerts/\~username/customerror.cgi**.)
+
+Note that the list in question must be visible and an AFS group. You can
+check the status by running **blanche *group* -i** at an Athena prompt:
+it should say “visible” under flags and “is a group” on the next line.
+(If you own the list, you can change these by running **blanche *group*
+-V** to make it visible and **blanche *group* -G** to make it an AFS
+group.)
+
+Please double-check that the restrictions are enforced properly, e.g.,
+by using a computer that doesn’t have certificates or asking someone
+else to try accessing the page. Note that scripts does **not** support
+**.htaccess.mit** files.
+
+If you have any questions about using this system for restricting
+access, please contact [scripts@mit.edu](mailto:scripts@mit.edu).
+
+#### Finding certificate information from CGI scripts
+
+If you access your website with HTTPS on port 444
+(**https://username.scripts.mit.edu:444/**), the scripts server will
+request a certificate from the user. It will then create special [SSL
+environment
+variables](http://www.modssl.org/docs/2.8/ssl_reference.html#ToC25)
+based on the user’s identity. The most useful is the variable
+SSL\_CLIENT\_S\_DN\_Email, which can be used to determine the Athena
+username of the individual currently accessing your script.
+
+Here’s an example of listing these environment variables with Perl:\
+ [code](http://web.mit.edu/~jbarnold/web_scripts/demo/env.pl.html) |
+[output without SSL](http://scripts.mit.edu/~jbarnold/demo/env.pl) |
+[output with SSL](https://scripts-cert.mit.edu/~jbarnold/demo/env.pl)
+
+Here’s another example, using PHP to detect whether you’re using
+certificates:\
+ [code](http://web.mit.edu/~geofft/web_scripts/detect.php) | [output
+without SSL](http://scripts.mit.edu/~geofft/demo/detect.php) | [output
+with SSL](https://scripts-cert.mit.edu/~geofft/demo/detect.php)
+
+If you’re using Django, a certificate authentication backend is
+available:\
+ [Details on the web](http://web.mit.edu/snippets/django/mit/) | Code:
+git://snippets.scripts.mit.edu/.git or
+/afs/sipb.mit.edu/project/snippets/
+
+You can also limit access using
+[passwords](http://scripts.mit.edu/faq/23/).
