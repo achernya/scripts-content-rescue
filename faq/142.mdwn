@@ -1,0 +1,6 @@
+[[!meta title="How do I do certificate authentication with Django?"]]
+Using certificate authentication with Django probably requires
+configuring another authentication backend. SIPB’s snippets collection
+has [code](http://web.mit.edu/snippets/django/mit/) and [limited
+documentation](http://web.mit.edu/snippets/django/README.md) on how to
+do this. If you have issues with those instructions, please let us know.
