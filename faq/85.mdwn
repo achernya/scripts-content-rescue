@@ -1,0 +1,40 @@
+[[!meta title="How do I move a scripts.mit.edu site from one locker to another?"]]
+If you are trying to move a MediaWiki, please use the detailed
+instructions [here](/faq/88).
+
+If you have a custom hostname that needs to be moved, perform the steps
+below and then contact scripts@mit.edu.
+
+In this example, Ben Bitdiddle will be move a wiki to the 6.001 locker.
+First he makes sure the 6.001 locker is signed up for the scripts and
+SQL services:
+
+> athena% **add scripts**\
+>  athena% **signup-web**\
+>  ...\
+>  athena% **signup-sql**\
+>  ...
+
+Then he copies over the files:
+
+> athena% **attach** bitdiddl 6.001\
+>  athena% **cp -a /mit/**bitdiddl**/web\_scripts/**wiki
+> **/mit/**6.001**/web\_scripts**
+
+Then he dumps the SQL database, creates a database named *wiki* for
+6.001 by logging into [sql.mit.edu](http://sql.mit.edu) as 6.001, and
+restores the dump into the 6.001 locker. A database dump can be created
+and restored either [with phpMyAdmin](/faq/10/), or with the command
+line:
+
+> athena% **ssh -k scripts**\
+>  [bitdiddl@scripts]\$ **mysqldump** bitdiddl+wiki **\>
+> database-dump.sql**\
+>  [bitdiddl@scripts]\$ **exit**\
+>  athena% **mv database-dump.sql /mit/**6.001**/web\_scripts**\
+>  athena% **ssh -k**6.001**@scripts**\
+>  [6.001@scripts]\$ **mysql** 6.001+wiki **\< database-dump.sql**
+
+Finally, he edits the configuration files in
+/mit/6.001/web\_scripts/wiki to use the 6.001 locker's username and
+password. For MediaWiki, this is done in the file **LocalSettings.php**.
