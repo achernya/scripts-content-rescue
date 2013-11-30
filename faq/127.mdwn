@@ -1,0 +1,42 @@
+[[!meta title="How can I import an outside Django project?"]]
+Configuring an outside Django project to run on scripts can be a bit
+tricky if you’ve only before had experience with “./manage.py
+runserver”. Here’s one way to get a Django project running on
+scripts.mit.edu:
+
+1.  Start with the [regular scripts Django autoinstaller](/start/)
+2.  Move the created /mit/lockername/Scripts/django/projname aside to
+    /mit/lockername/Scripts/django/projname.auto
+3.  Copy in *your* application’s code to
+    /mit/lockername/Scripts/django/projname
+4.  Update the paths in /mit/lockername/web\_scripts/progname/index.fcgi
+    1.  Make sure that the sys.path.insert line points to the directory
+        *containing* projname (likely /mit/lockername/Scripts/django/)
+    2.  Possibly add a sys.path.insert line that points to
+        /mit/lockername/Scripts/django/projname, if your includes are
+        appname.models, not projname.appname.models (or similar)
+    3.  Make sure the chdir line is right —- it should point to the
+        directory containing your project code
+
+5.  Add a symbolic link from
+    /mit/lockername/web\_scripts/projname/media/ to
+    /mit/lockername/Scripts/django/projname/media/
+6.  Merge the autoinstalled settings.py (that is,
+    /mit/lockername/Scripts/django/projname.auto/settings.py) into your
+    settings.py
+    1.  Copy the database information
+    2.  Copy the SECRET\_KEY, or make your own new one
+    3.  Copy the ADMIN\_MEDIA\_PREFIX —- for scripts.mit.edu, this
+        should be “/\_\_scripts/django/static/admin/”
+    4.  Make sure the value of MEDIA\_URL is reasonable (generally
+        “/projname/media/”)
+
+7.  Make sure to install any necessary dependencies (see [How can I
+    install Python modules in my locker?](/faq/126) for instructions how
+    to do so with `easy_install`)
+8.  Set up your database appropriately, either by running “./manage.py
+    syncdb” or by installing a database dump from a running copy of your
+    project
+9.  Once you’ve confirmed that your Django project works, delete
+    /mit/lockername/Scripts/django/projname.auto/
+
