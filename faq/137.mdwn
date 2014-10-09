@@ -1,0 +1,42 @@
+[[!meta title="How do I debug my scripts?"]]
+Unfortunately, scripts.mit.edu does not support per-user error logs
+(yet!), so debugging a recalcitrant CGI script may be a little
+difficult. While the Scripts team hopes to add error logging in the near
+future, here are some immediate ways you can convince your scripts to
+give you more information:
+
+-   You can view error logs in real time using the ‘logview’ command on
+    a Scripts server. Note that you need to be SSH’ed into the server
+    that is serving your website, and not necessarily scripts.mit.edu
+    server. You can determine what server you are being load-balanced to
+    by checking the bottom of http://scripts.mit.edu and looking for
+    “You are currently connected to XXX.mit.edu” server. This will not
+    display all errors: in particular, if an error message spans
+    multiple lines, you will only see the first line, and error messages
+    with no data associated with your locker will also be hidden.
+
+-   If you have a PHP script that is failing with no error output, you
+    likely have error reporting turned off. Open or create a php.ini
+    file in the same directory as the script, and in it ensure that
+    “display\_errors = on” and “error\_reporting = E\_ALL \^ E\_NOTICE”.
+    This will cause errors to be displayed on the web page.
+
+-   If you have some script that you know is writing information to
+    stderr that you want to see, you can often run it directly from the
+    command line via SSH to scripts and see if it outputs anything
+    interesting. Nota bene: the configuration of the command line may be
+    subtly different than that invoked from the web, for example, php
+    from the command line will not load a php.ini file in the directory;
+    you’ll need to manually add it with -c
+
+-   If your FastCGI script is not working and you’re getting error
+    messages like:
+
+        [Fri Oct 29 20:31:04 2010] [notice] mod_fcgid: process
+          /afs/athena.mit.edu/contrib/scripts/web_scripts/index.fcgi(15116)
+          exit(communication error), terminated by calling exit(), return code: 121
+
+    this probably means your index.fcgi is lacking the executable bit.
+    You can set it using `chmod a+x index.fcgi`.
+
+
