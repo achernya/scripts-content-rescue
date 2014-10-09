@@ -1,0 +1,15 @@
+[[!meta title="Can my group use scripts.mit.edu or sql.mit.edu with our Athena locker?"]]
+Yes! All scripts.mit.edu services support both groups and individual
+users. Any [administrator of your Athena locker](/faq/58) can act on
+behalf of your group. The [quick-start installer system](/start) may be
+a good way of getting started.
+
+If you need to ssh to scripts.mit.edu in order to run commands on behalf
+of a group locker, you should do so using the special instructions
+provided on our [ssh documentation page](/faq/41/).
+
+You can sign up for sql.mit.edu by [following our
+instructions](/faq/66/how-do-i-signup-my-grouplocker-with-the-mysql-service).
+
+If you have any questions, feel free to contact
+[scripts@mit.edu](mailto:scripts@mit.edu).
