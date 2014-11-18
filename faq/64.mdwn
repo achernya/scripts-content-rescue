@@ -1,0 +1,52 @@
+[[!meta title="How do I enable additional PHP extensions?"]]
+Several PHP extensions are installed on the scripts servers, but not
+enabled by default. (Since most scripts do not use these extensions,
+this saves startup time and memory.) You can load any of these
+extensions by creating a text file called `php.ini` in the same
+directory as your PHP script, and adding a line with:
+
+> **extension =**[extension name]**.so**
+
+one line for each extension you want to enable.
+
+Note that this will override some settings in the global php.ini — most
+importantly, this will cause magic\_quotes\_gpc to turn **on**! You
+should make sure that your application unsets this option, or set
+**magic\_quotes\_gpc = no** in your own php.ini file.
+
+The following are the extensions installed on the scripts servers, with
+links to more information about them from the PHP website.
+
+-   [bcmath](http://php.net/bc)
+-   [curl](http://php.net/curl)
+-   [dba](http://php.net/dba)
+-   [dom](http://php.net/dom)
+-   [fileinfo](http://php.net/fileinfo)
+-   [gd](http://php.net/gd)
+-   [imap](http://php.net/imap)
+-   [imagick](http://php.net/imagick)
+-   [json](http://php.net/json)
+-   [ldap](http://php.net/ldap)
+-   [mailparse](http://php.net/mailparse)
+-   [mbstring](http://php.net/mbstring)
+-   [mcrypt](http://php.net/mcrypt)
+-   [mysqlnd](http://php.net/manual/en/book.mysqlnd.php)
+-   [mysqli](http://php.net/mysqli)
+-   [ncurses](http://php.net/ncurses)
+-   [odbc](http://php.net/odbc)
+-   [pdo](http://php.net/pdo)
+-   [pdo\_mysqlnd](http://php.net/pdo_mysql) (requires pdo)
+-   [pdo\_odbc](http://php.net/pdo_odbc) (requires pdo)
+-   [pdo\_pgsql](http://php.net/pdo_pgsql) (requires pdo)
+-   [pdo\_sqlite](http://php.net/pdo_sqlite) (requires pdo)
+-   [pgsql](http://php.net/pgsql)
+-   [rrdtool](http://oss.oetiker.ch/rrdtool/)
+-   [snmp](http://php.net/snmp)
+-   [soap](http://php.net/soap)
+-   [tidy](http://php.net/book.tidy)
+-   [xmlreader](http://php.net/xmlreader)
+-   [xmlrpc](http://php.net/xmlrpc)
+-   [xmlwriter](http://php.net/xmlwriter)
+-   [xsl](http://php.net/xsl)
+-   [zip](http://php.net/zip)
+
