@@ -1,0 +1,20 @@
+[[!meta title="Why shouldn't I use scripts.mit.edu/~locker URLs?"]]
+Early versions of the scripts.mit.edu webhosting platform used URLs of
+the form http://scripts.mit.edu/\~locker/ (or
+http://scripts-cert.mit.edu/\~locker/). Those URLs still work, but have
+long since been deprecated in favor of URLs like
+http://locker.scripts.mit.edu/. Current autoinstallers and documentation
+all use the new form of the URLs (if you find exceptions, please
+[contact us](mailto:scripts@mit.edu)).
+
+The older \~ form of URLs, in addition to being aesthetically
+unpleasing, is incompatible with the modern web’s security model. Under
+the “same-origin policy”, browsers consider a site at
+https://scripts.mit.edu/\~locker/ to be run by the same group as one at
+https://scripts.mit.edu/\~evil/, and allow JavaScript from the latter to
+interfere with the former. (You can read more at
+[Wikipedia](https://en.wikipedia.org/wiki/Same-origin_policy) or the
+[Mozilla Developer
+Network](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy).)
+As a result, using \~ URLs is discouraged and will stop working entirely
+at some point in the future.
