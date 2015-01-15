@@ -1,0 +1,34 @@
+[[!meta title="Is scripts.mit.edu appropriate for my site?"]]
+In general, scripts.mit.edu is well-suited for dynamic sites (including
+blogs and wikis, as well as custom apps) for individuals and small
+groups, but its volunteer-run nature may make it poorly suited for
+larger groups (such as labs). IS&T has a page detailing other [options
+for making a website at
+MIT](http://kb.mit.edu/confluence/pages/viewpage.action?pageId=152584629),
+which can help you decide where to host your website.
+
+scripts.mit.edu is run by volunteers from [SIPB](http://sipb.mit.edu/),
+MIT’s student computing group. It is neither run nor supported by IS&T.
+We provide best-effort support via email at scripts@mit.edu, but we
+can’t guarantee that we will be able to help with your problem or that
+we will have any particular response time, even for urgent requests.
+Please keep this in mind before using scripts.mit.edu for a
+mission-critical application.
+
+scripts.mit.edu uses multiple servers for load-balancing and
+reliability, and has historically maintained very high uptime. However,
+we can make no guarantees about future uptime, and there are many Athena
+services outside our control whose outages can impact scripts.mit.edu
+sites.
+
+One particular concern around around the best-effort support policy
+involves security issues. Scripts policy when we discover that a scripts
+account has been compromised and is running exploit code is to disable
+the account. We will only reenable it once the account owners confirm
+they have fixed the site, and a Scripts maintainer has verified that the
+exploit code and original vulnerability have been fixed. This can
+sometimes take a large amount of maintainer time, and therefore there
+may be significant delay before our volunteers have a chance to reenable
+the site. As a result, if your site being down for at least several days
+after a security issue is prohibitive, you should use a different
+hosting solution.
