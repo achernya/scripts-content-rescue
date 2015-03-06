@@ -1,0 +1,54 @@
+[[!meta title="How do I make a file accessible to Apache? (I'm getting a 403 Forbidden error)"]]
+To mark a single file accessible to Apache
+------------------------------------------
+
+You can run
+
+    chmod 777 FILENAME
+
+to make a single file named FILENAME accessible to the Apache web
+server.
+
+To mark an entire directory world-readable
+------------------------------------------
+
+If you want to make an entire directory world-readable, you can change
+its AFS access control list in order to do so. You can do so by “cd”-ing
+to the directory and then running
+
+    fs sa . system:anyuser read
+
+(You should run these commands on an Athena workstation or dialup,
+instead of directly on the scripts servers.)
+
+It may take some time for Scripts to pick up the permission changes; you
+can speed up the process by running
+
+    athrun scripts for-each-server fs flushv
+
+If you would like to make programs that are normally executable
+downloadable by the user, you will also need to create a .htaccess file
+containing the following:
+
+\<Files \*\>\
+ SetHandler none\
+ \</Files\>
+
+This instructs Apache to pass the files through directly, rather than
+attempting to interpret them as code.
+
+Technical Information
+---------------------
+
+The file system on Athena (AFS) usually ignores chmod modes, but
+scripts.mit.edu normally restricts AFS access to a home directory to the
+owner of that home directory. However, the special mode 777 has special
+meaning on scripts.mit.edu (we run a modified AFS client), and indicates
+that the Apache web server may directly access the file. No other chmod
+modes will have the same effect.
+
+This is usually not needed for actual scripts or even most static
+content (such as .html files), since those files are accessed via your
+user account. It was previously needed for .htaccess files, but now (as
+of June 2009) Apache is given implicit read permission on all files
+whose names begin with “.ht”, such as .htaccess and .htpasswd.
